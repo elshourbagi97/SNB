@@ -1,0 +1,380 @@
+ @tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./assets/css/style.css";
+/*:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+.firstStep {
+    background-color: #008787;
+    position: relative;
+    height: 100vh;
+}
+
+.firstStep footer {
+    background-color: #004F54;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+
+footer .firstLogoFooter,
+footer .secoundLogoFooter {
+    width: auto;
+    height: 20px;
+}
+
+.header {
+    position: relative;
+}
+
+.logoLanding {
+    position: absolute;
+    width: auto;
+    height: 5pc;
+    left: 30px;
+    top: 30px;
+}
+
+.header svg {
+    width: 100%;
+    height: fit-content;
+}
+
+.contentHeader {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    color: #FFF;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+
+.contentHeader .subHeader {
+    width: 70%;
+    margin: 0 auto 30px;
+}
+
+.contentHeader .containerDateWelcome img {
+    width: auto;
+    height: 200px;
+    margin: 0 auto -10px;
+}
+
+.contentHeader .containerDateWelcome .dateWelcome {
+    background: #FFF;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.contentHeader .containerDateWelcome .dateWelcome p {
+    font-size: 13px;
+    color: #004639;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonGroup button {
+    color: #FFF;
+    width: auto;
+    border-radius: 50px;
+    margin: 0 10px;
+    background: #84BD04;
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.patterFooter {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 40px;
+    z-index: -1;
+}
+
+.patterFooter svg {
+    width: 100%;
+    height: auto;
+    margin-bottom: -40px;
+}
+
+.firstStep .patterFooter svg path {
+    fill: #0c9393 !important;
+}
+
+.bodycontent {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bodycontent h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.bodycontent p {
+    color: #FFF;
+}
+
+.mapUser {
+    width: auto;
+    height: 185px;
+    margin: 0 auto;
+}
+
+.questionUser {
+    display: flex;
+    align-items: end;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-around;
+    position: relative;
+    top: 21px;
+}
+
+.questionUser .dateWelcome p {
+    background: #FFF;
+    padding: 16px;
+    margin-right: 5px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 14px;
+}
+
+.questionUser img {
+    width: auto;
+    height: 8pc;
+}
+
+.containerQuestionChoose {
+    background: #004f54;
+    padding: 50px 20px;
+    border-radius: 20px 20px 0 0;
+    height: 50vh;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.containerQuestionChoose .question {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #000000;
+    background: #FFF;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.containerQuestionChoose .question h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    padding: 10px;
+}
+
+.containerQuestionChoose .question .ContaineritemBox {
+    margin: 10px 0;
+}
+
+.itemBox {
+    background: #dedede;
+    padding: 11px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.itemBox p {
+    color: #333;
+    font-size: 14px;
+}
+
+.numberQuestion {
+    position: absolute;
+    width: auto;
+    right: 30px;
+    bottom: 50%;
+    color: #FFF;
+}
+
+.activeItembox {
+    background: #008787;
+}
+
+.activeItembox p {
+    color: #FFF
+}
+
+.inputGroup input {
+    background: #f3f3f3;
+    padding: 11px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+
+/* Start Color move  */
+
+.bodyColor_move {
+    background: #7670b2;
+}
+
+.bodyColor_move footer {
+    background: #46417e;
+}
+
+.bodyColor_move .header .logoLanding~svg path {
+    fill: #46417e !important;
+}
+
+.bodyColor_move .patterFooter svg path {
+    fill: #8680bc !important;
+}
+
+
+/* end Color move  */
+
+
+/* Start Color organdi  */
+
+.bodyColor_organdi {
+    background: #6e0f3d;
+}
+
+.bodyColor_organdi footer {
+    background: #54002a;
+}
+
+.bodyColor_organdi .header .logoLanding~svg path {
+    fill: #54002a!important;
+}
+
+.bodyColor_organdi .patterFooter svg path {
+    fill: #7c1746 !important;
+}
+
+
+/* end Color organdi  */
+
+
+/* Start Color gold  */
+
+.bodyColor_gold {
+    background: #896d35;
+}
+
+.bodyColor_gold footer {
+    background: #524117;
+}
+
+.bodyColor_gold .header .logoLanding~svg path {
+    fill: #524117!important;
+}
+
+.bodyColor_gold .patterFooter svg path {
+    fill: #97773c !important;
+}
+
+
+/* end Color gold  */
+
+
+/* Start Color green  */
+
+.bodyColor_green {
+    background: #37863b;
+}
+
+.bodyColor_green footer {
+    background: #004317;
+}
+
+.bodyColor_green .header .logoLanding~svg path {
+    fill: #004317!important;
+}
+
+.bodyColor_green .patterFooter svg path {
+    fill: #479349 !important;
+}
+
+
+/* end Color green  */

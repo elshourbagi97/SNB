@@ -1,0 +1,434 @@
+.firstStep {
+    background-color: #008787;
+    position: relative;
+    height: 100vh;
+}
+
+.firstStep footer {
+    background-color: #004F54;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+}
+
+footer .firstLogoFooter,
+footer .secoundLogoFooter {
+    width: auto;
+    height: 20px;
+}
+
+.header {
+    position: relative;
+}
+
+.logoLanding {
+    position: absolute;
+    width: auto;
+    height: 5pc;
+    left: 30px;
+    top: 30px;
+}
+
+.header svg {
+    width: 100%;
+    height: fit-content;
+}
+
+.contentHeader {
+    width: 70%;
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    color: #FFF;
+    left: 50%;
+    transform: translate(-50%, -20%);
+}
+
+.contentHeader .subHeader {
+    width: 70%;
+    margin: 0 auto 30px;
+}
+
+.contentHeader .containerDateWelcome img {
+    width: auto;
+    height: 200px;
+    margin: 0 auto -10px;
+}
+
+.contentHeader .containerDateWelcome .dateWelcome {
+    background: #FFF;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.contentHeader .containerDateWelcome .dateWelcome p {
+    font-size: 13px;
+    color: #004639;
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonGroup button {
+    color: #FFF;
+    width: auto;
+    border-radius: 50px;
+    margin: 0 10px;
+    background: #84BD04;
+    padding: 10px 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.patterFooter {
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    bottom: 40px;
+    z-index: -1;
+}
+
+.patterFooter svg {
+    width: 100%;
+    height: auto;
+    margin-bottom: -40px;
+}
+
+.firstStep .patterFooter svg path {
+    fill: #0c9393 !important;
+}
+
+.bodycontent {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.bodycontent h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.bodycontent p {
+    color: #FFF;
+}
+
+.mapUser {
+    width: auto;
+    height: 185px;
+    margin: 0 auto;
+}
+
+.questionUser {
+    display: flex;
+    align-items: end;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-around;
+    position: relative;
+    top: 21px;
+}
+
+.questionUser .dateWelcome p {
+    background: #FFF;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    font-size: 14px;
+}
+
+.questionUser img {
+    width: auto;
+    height: 8pc;
+}
+
+.containerQuestionChoose {
+    background: #004f54;
+    padding: 50px 20px;
+    border-radius: 20px 20px 0 0;
+    height: 50vh;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.containerQuestionChoose .question {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #000000;
+    background: #FFF;
+    padding: 10px 20px;
+    border-radius: 30px;
+}
+
+.containerQuestionChoose .question h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    padding: 10px;
+}
+
+.containerQuestionChoose .question .ContaineritemBox {
+    margin: 10px 0;
+}
+
+.itemBox {
+    background: #dedede;
+    padding: 11px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.itemBox p {
+    color: #333;
+    font-size: 14px;
+}
+
+.numberQuestion {
+    position: absolute;
+    width: auto;
+    right: 30px;
+    bottom: 50%;
+    color: #FFF;
+}
+
+.activeItembox {
+    background: #008787;
+}
+
+.activeItembox p {
+    color: #FFF
+}
+
+.inputGroup input {
+    background: #f3f3f3;
+    padding: 11px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+
+/* Start Shiled  */
+
+.shiledpage .logoLanding {
+    left: 50%;
+    transform: translateX(-50%);
+    height: 5pc;
+    top: 6%;
+}
+
+.shiledpage .containerShiled {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -43%);
+    width: 76%;
+}
+
+.shiledpage .firstP_shiled {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFF;
+}
+
+.shiledpage .secoundP_shiled {
+    text-align: center;
+    margin-top: 10px;
+    color: #FFF;
+}
+
+.shiledpage .containerinner {
+    position: relative;
+}
+
+.shiledpage .containerinner svg {
+    width: auto;
+    height: 260px;
+    margin: 0 auto;
+}
+
+.shiledpage .containerinner p {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #594916;
+    font-weight: 700;
+}
+
+.shiledpage footer {
+    background: transparent;
+}
+
+
+/* end Shiled  */
+
+
+/* Start successPage  */
+
+.successPage {
+    background: #004639;
+}
+
+.successPage .header svg {
+    opacity: 0.5;
+    position: relative;
+    z-index: -1;
+}
+
+.successPage .logoLanding {
+    height: 3pc;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 8%;
+}
+
+.successPage .containerSuccess {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.successPage .containerSuccess>p {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.successPage .containerSuccess .messageSuccess {
+    display: flex;
+    align-items: center;
+}
+
+.successPage .containerSuccess .messageSuccess div {
+    background: #FFF;
+    padding: 12px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    height: auto;
+}
+
+.successPage .containerSuccess .messageSuccess div p {
+    font-size: 13px;
+    color: #004639;
+}
+
+.successPage .containerSuccess .messageSuccess img {
+    width: auto;
+    height: 10pc;
+}
+
+.successPage footer {
+    background: transparent;
+    justify-content: center;
+}
+
+.successPage footer img {
+    height: 70px;
+}
+
+
+/* end successPage  */
+
+
+/* Start Color move  */
+
+.bodyColor_move {
+    background: #7670b2;
+}
+
+.bodyColor_move footer {
+    background: #46417e;
+}
+
+.bodyColor_move .header .logoLanding~svg path {
+    fill: #46417e !important;
+}
+
+.bodyColor_move .patterFooter svg path {
+    fill: #8680bc !important;
+}
+
+
+/* end Color move  */
+
+
+/* Start Color organdi  */
+
+.bodyColor_organdi {
+    background: #6e0f3d;
+}
+
+.bodyColor_organdi footer {
+    background: #54002a;
+}
+
+.bodyColor_organdi .header .logoLanding~svg path {
+    fill: #54002a!important;
+}
+
+.bodyColor_organdi .patterFooter svg path {
+    fill: #7c1746 !important;
+}
+
+
+/* end Color organdi  */
+
+
+/* Start Color gold  */
+
+.bodyColor_gold {
+    background: #896d35;
+}
+
+.bodyColor_gold footer {
+    background: #524117;
+}
+
+.bodyColor_gold .header .logoLanding~svg path {
+    fill: #524117!important;
+}
+
+.bodyColor_gold .patterFooter svg path {
+    fill: #97773c !important;
+}
+
+
+/* end Color gold  */
+
+
+/* Start Color green  */
+
+.bodyColor_green {
+    background: #37863b;
+}
+
+.bodyColor_green footer {
+    background: #004317;
+}
+
+.bodyColor_green .header .logoLanding~svg path {
+    fill: #004317!important;
+}
+
+.bodyColor_green .patterFooter svg path {
+    fill: #479349 !important;
+}
+
+
+/* end Color green  */
