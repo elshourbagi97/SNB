@@ -14,7 +14,6 @@ import Q1D2 from './SecondDay/Q1D2'
 import Q2D2 from './SecondDay/Q2D2'
 import Q3D2 from './SecondDay/Q3D2'
 import Q4D2 from './SecondDay/Q4D2'
-import Q5D2 from './SecondDay/Q5D2'
 import Shield2 from './SecondDay/shield2'
 
 function App() {
@@ -45,7 +44,6 @@ const navigate = useNavigate();
       <Route path='/question2/Day2' element={<Q2D2/>}/>
       <Route path='/question3/Day2' element={<Q3D2/>}/>
       <Route path='/question4/Day2' element={<Q4D2/>}/>
-      <Route path='/question5/Day2' element={<Q5D2/>}/>
       <Route path='/shield/day2' element={<Shield2/>}/>
 
        {/* اليوم الثالث */}

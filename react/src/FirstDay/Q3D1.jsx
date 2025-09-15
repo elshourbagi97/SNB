@@ -10,7 +10,7 @@ import logo from "../assets/img/logo.svg";
 
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
 // ✅ استدعاء الـ Popup
 
@@ -129,7 +129,9 @@ export default function Q3D1() {
           />
         </svg>
 
-        <div className={`questionUser ${lang === 'ar' ? "Q3ArUser" : "Q3User"} `}>
+        <div
+          className={`questionUser ${lang === "ar" ? "Q3ArUser" : "Q3User"} `}
+        >
           <div
             data-aos="fade-right"
             data-aos-delay="100"
@@ -152,20 +154,23 @@ export default function Q3D1() {
       </div>
 
       {/* Body */}
-      <div className="fullcontainer">
-        <div className="max-w-4xl mx-auto">
-          <div className="bodycontent">
-            <div className={`containerQuestionChoose ${lang === "ar" ? "Q3ArContent" : "Q3Content"}`}>
-              <div
-                data-aos="zoom-in-up"
-                data-aos-delay="300"
-                className="question Q3"
-              >
-                <h3>
-                  {lang === "ar"
-                    ? "أنا المؤشر اللي يختصر قوة الاقتصاد... من أكون ؟"
-                    : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
-                </h3>
+      <div className="max-w-4xl mx-auto">
+        <div className="bodycontent">
+          <div
+            className={`containerQuestionChoose ${
+              lang === "ar" ? "Q3ArContent" : "Q3Content"
+            }`}
+          >
+            <div
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="question Q3"
+            >
+              <h3>
+                {lang === "ar"
+                  ? "أنا المؤشر اللي يختصر قوة الاقتصاد... من أكون ؟"
+                  : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
+              </h3>
 
                 <div className="ContaineritemBox">
                   {options.map((opt, index) => (
@@ -184,20 +189,22 @@ export default function Q3D1() {
                 </div>
               </div>
 
-              {/* Submit button */}
-              <div
-                // data-aos="zoom-in-up"
-                // data-aos-delay="300"
-                className={`buttonGroup mt-6 ${lang === "ar" ? "btn-Ar-3" : "btn-3"}`}
+            {/* Submit button */}
+            <div
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className={`buttonGroup mt-6 ${
+                lang === "ar" ? "btn-Ar-3" : "btn-3"
+              }`}
+            >
+              <button
+                className="btn btn-success px-4 py-2"
+                onClick={handleSubmit}
               >
-                <button
-                  className="btn btn-success px-4 py-2"
-                  onClick={handleSubmit}
-                >
-                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-                </button>
-              </div>
+                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+              </button>
             </div>
+          </div>
 
 
           </div>

@@ -10,7 +10,7 @@ import userWelcome from "../assets/img/UserWelcome.svg";
 
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
 // ✅ Popup
 
@@ -36,7 +36,9 @@ export default function Q2D1() {
   const handleSubmit = () => {
     if (!answer.trim()) {
       setPopupMessage(
-        lang === "ar" ? "من فضلك اكتب الإجابة أولاً ⚠️" : "Please enter your answer first ⚠️"
+        lang === "ar"
+          ? "من فضلك اكتب الإجابة أولاً ⚠️"
+          : "Please enter your answer first ⚠️"
       );
       setPopupType("warning");
       setShowPopup(true);
@@ -44,7 +46,9 @@ export default function Q2D1() {
     }
 
     if (answer.trim() === correctAnswer) {
-      setPopupMessage(lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉");
+      setPopupMessage(
+        lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉"
+      );
       setPopupType("success");
       setShowPopup(true);
     } else {
@@ -111,7 +115,11 @@ export default function Q2D1() {
         </svg>
 
         <div className="questionUser">
-          <div data-aos="fade-right" data-aos-delay="100" className="dateWelcome">
+          <div
+            data-aos="fade-right"
+            data-aos-delay="100"
+            className="dateWelcome"
+          >
             <p>
               {lang === "ar"
                 ? "سهلة صح ؟ بعطيك سؤال ثاني"
@@ -132,68 +140,66 @@ export default function Q2D1() {
         <div className="max-w-7xl mx-auto">
           <div className="bodycontent">
             <div className="containerQuestionChoose">
-              <div data-aos="zoom-in-up" data-aos-delay="300" className="question">
+              <div
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="question"
+            >
                 <h3>
                   {lang === "ar"
                     ? "كم سنة مرت علي توحيد مملكتنا الغالية ؟"
                     : "How many years has it been since our beloved Kingdom was unified?"}
                 </h3>
 
-                <div className="ContaineritemBox">
-                  <div className="inputGroup">
-                    <input
-                      dir={lang === "ar" ? "rtl" : "ltr"}
-                      type="number"
-                      placeholder={lang === "ar" ? "ادخل عدد السنوات" : "Enter number of years"}
-                      value={answer}
-                      onChange={(e) => setAnswer(e.target.value)}
-                      className="border px-3 py-2 rounded w-full"
-                    />
-                  </div>
+              <div className="ContaineritemBox">
+                <div className="inputGroup">
+                  <input
+                    dir={lang === "ar" ? "rtl" : "ltr"}
+                    type="number"
+                    placeholder={
+                      lang === "ar"
+                        ? "ادخل عدد السنوات"
+                        : "Enter number of years"
+                    }
+                    value={answer}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    className="border px-3 py-2 rounded w-full"
+                  />
                 </div>
-              </div>
-
-              {/* Submit button */}
-              <div className="buttonGroup mt-4">
-                <button className="btn btn-success px-4 py-2" onClick={handleSubmit}>
-                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-                </button>
               </div>
             </div>
 
-
+            {/* Submit button */}
+            <div
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="buttonGroup mt-4"
+            >
+              <button
+                className="btn btn-success px-4 py-2"
+                onClick={handleSubmit}
+              >
+                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+              </button>
+            </div>
           </div>
+
+          {/* Footer */}
+          <footer className="flex justify-center gap-6 mt-6">
+            <img
+              className="firstLogoFooter"
+              src={firstLogoFooter}
+              alt="First Footer Logo"
+            />
+            <img
+              className="secoundLogoFooter"
+              src={secoundLogoFooter}
+              alt="Second Footer Logo"
+            />
+          </footer>
         </div>
       </div>
-      {/* Pattern Footer */}
-      <div className="patterFooter">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="858"
-          height="441"
-          viewBox="0 0 858 441"
-          fill="none"
-        >
-          {/* محتوى الـ SVG زي ما هو */}
-          <g clipPath="url(#clip0_789_92342)">
-            <path
-              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
-              fill="#249B98"
-            />
-            {/* باقي ال paths زي الكود الأصلي */}
-          </g>
-          <defs>
-            <clipPath id="clip0_789_92342">
-              <rect width="858" height="441" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
-      {/* Footer */}
-      <footer className="flex justify-center gap-6 mt-6">
-        <img className="firstLogoFooter" src={firstLogoFooter} alt="First Footer Logo" />
-        <img className="secoundLogoFooter" src={secoundLogoFooter} alt="Second Footer Logo" />
-      </footer>
+
       {/* ✅ Popup Component */}
       <Popup
         show={showPopup}

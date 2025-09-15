@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from "react";
 import Aos from "aos";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
@@ -22,15 +21,16 @@ export default function Shield() {
       secondTitle:
         "احتفظ فيه... كل وسام يقربك أكثر من ثروة الوطن بكرة محطة جديدة وتحدي جديد، خلك مستعد تكتشف الثورة الحقيقية",
       badgeText: "أنا مساهم في النمو اقتصاد",
-      switchLang: "English"
+      switchLang: "English",
     },
     en: {
-      firstTitle: "Keep it, as each badge brings you closer to the Nation’s Treasure.",
+      firstTitle:
+        "Keep it, as each badge brings you closer to the Nation’s Treasure.",
       secondTitle:
         "Tomorrow brings a new stop and a fresh challenge. Be ready to discover the real treasure!",
       badgeText: "I am contributing to Economic Growth",
-      switchLang: "العربية"
-    }
+      switchLang: "العربية",
+    },
   };
 
   // حفظ اللغة في localStorage
@@ -44,7 +44,7 @@ export default function Shield() {
     <div className="firstStep shiledpage">
       <div className="header">
         <img className="logoLanding" src={logo} alt="logo" />
-       <svg
+        <svg
           xmlns="http://www.w3.org/2000/svg"
           width="989"
           height="1942"
@@ -71,21 +71,34 @@ export default function Shield() {
         <button
           onClick={() => setLang(lang === "ar" ? "en" : "ar")}
           className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
-          style={{background:"#004F54",border:"3px solid #011b1dff"}}
+          style={{ background: "#004F54", border: "3px solid #011b1dff" }}
         >
           {t.switchLang}
         </button>
       </div>
 
       <div className="containerShiled">
-        <p dir={lang === "ar" ? "rtl" : "ltr"} data-aos="fade-down" data-aos-delay="200" className="firstP_shiled">
+        <p
+          dir={lang === "ar" ? "rtl" : "ltr"}
+          data-aos="fade-down"
+          data-aos-delay="200"
+          className="firstP_shiled"
+        >
           {t.firstTitle}
         </p>
-        <p dir={lang === "ar" ? "rtl" : "ltr"} data-aos="fade-up" data-aos-delay="200" className="secoundP_shiled">
+        <p
+          dir={lang === "ar" ? "rtl" : "ltr"}
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="secoundP_shiled"
+        >
           {t.secondTitle}
         </p>
-        <div className="containerinner rotate-wrap" style={{ position: "relative" }}>
-         <svg
+        <div
+          className="containerinner rotate-wrap"
+          style={{ position: "relative" }}
+        >
+          <svg
             xmlns="http://www.w3.org/2000/svg"
             width="480"
             height="564"

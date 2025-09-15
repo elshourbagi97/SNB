@@ -84,11 +84,14 @@ footer .secoundLogoFooter {
     justify-content: center;
     align-items: center;
 }
+.btnMap3{
+  
+}
 .btn-En-map2{
     translate: 0rem -3rem;
 }
 
-.btn-3{
+.btn-3,.btnQ3{
     translate: 0px -3.3rem;
 }
 .btn-Ar-3{
@@ -103,6 +106,7 @@ footer .secoundLogoFooter {
 .btnMap2{
     translate: 0px -5rem;
 }
+
 
 .buttonGroup button {
     color: #FFF;
@@ -158,6 +162,9 @@ footer .secoundLogoFooter {
 .bodyEnContent{
 translate:0px -2.5rem ;
 }
+.bodyEnContent3{
+translate:0px -4.5rem ;
+}
 .bodyEnContent p{
     margin: 2rem;
 }
@@ -210,6 +217,11 @@ translate:0px -2.5rem ;
 }
 .questionUserQ1{
     top: -1.5rem;
+    z-index: 2;
+}
+
+.questionUserQ3{
+    top: -4.5rem;
     z-index: 2;
 }
 .questionUserQ3D2{
@@ -273,7 +285,7 @@ translate:0px -2.5rem ;
  .Q3D2{
     height: 60vh;
     background: #46417e;
-    translate: 0 -4rem;
+    translate: 0 -6rem;
     padding-top: 4rem;
 }
 .Q1Content,
@@ -302,14 +314,14 @@ translate:0px -2.5rem ;
     margin-top: 8px;
 }
 .containerQuestionChoose .contentQ4D2{
-  margin-top: -2.6rem;
-  padding: 5px 20px 0.2px;
+  margin-top: -1rem;
+  padding: 5px 20px 0.1px;
 }
 .containerQuestionChoose .Q1{
     translate: 0px -25px;
 }
 .containerQuestionChoose .Q3{
-    translate: 0px -2.2rem;
+    translate: 0px -2.8rem;
     padding-bottom:1px ;
 }
 
@@ -343,8 +355,8 @@ translate:0px -2.5rem ;
     padding: 4px 12px;
 }
 .itemBoxQ4D2{
-    padding: 2px 12px;
-    translate: 0 -7px;
+    padding: 1px 12px;
+    translate: 0 -8px;
 }
 .itemBoxQ4D2 p{
         font-size: 14px !important;
