@@ -265,7 +265,7 @@ export default function MapPage2() {
             {translations[lang].title}
           </p>
         </div>
-        <div data-aos="zoom-in-up" data-aos-delay="100" className="buttonGroup">
+        <div className="buttonGroup">
           <button
             className={`btn btn-success px-4 py-2 ${
               lang === "ar" ? "btn-1Ar" : ""

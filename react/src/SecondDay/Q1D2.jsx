@@ -174,8 +174,7 @@ export default function Q1D2() {
 
             {/* Submit button */}
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
+            
               className="buttonGroup mt-6"
             >
               <button

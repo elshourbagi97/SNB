@@ -10,10 +10,9 @@ import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import Popup from "../PopUp/PopUp";
 
-export default function Q4D2() {
+export default function Q1D3() {
   const navigate = useNavigate();
-  const [answer, setAnswer] = useState(null);
-  const [wrong, setWrong] = useState(null);
+  const [answer, setAnswer] = useState("");
   const [popupConfig, setPopupConfig] = useState({
     show: false,
     type: "",
@@ -29,40 +28,63 @@ export default function Q4D2() {
     localStorage.setItem("language", newLang);
   };
 
-  // خيارات السؤال (حسب اللغة)
-  const options =
-    lang === "ar"
-      ? ["أ - 1,100 متر", "ب - 2,600 متر ", "ج - 3,600 متر "]
-      : ["A - 1,100 meters", "B - 2,600 meters", "C - 3,600 meters"];
+  // ✅ الكلمات حسب اللغة
+  const continue_words_ar = [
+    "هويتنا",
+    "بتاريخنا",
+    "ثقافتنا",
+    "بقيادتنا",
+    "بانتمائنا",
+    "بشبابنا",
+    "بعروبتنا",
+    "مبادئنا",
+  ];
 
-  const correctAnswer = 0;
+  const continue_words_en = [
+    "Identity",
+    "History",
+    "Culture",
+    "Leadership",
+    "Belonging",
+    "Youth",
+    "Arabism",
+    "Principles",
+  ];
 
-  const handleSubmit = () => {
-    if (answer === null) {
-      setPopupConfig({
-        show: true,
-        type: "warning",
-        message: lang === "ar" ? "من فضلك اختار الإجابة أولاً ⚠️" : "Please select an answer first ⚠️",
-      });
-      return;
-    }
+  const continue_words = lang === "ar" ? continue_words_ar : continue_words_en;
 
-    if (answer === correctAnswer) {
-      setWrong(null);
-      setPopupConfig({
-        show: true,
-        type: "success",
-        message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
-      });
-    } else {
-      setWrong(answer);
-      setPopupConfig({
-        show: true,
-        type: "error",
-        message: lang === "ar" ? "إجابتك غير صحيحة، حاول مرة أخرى ❌" : "Wrong answer, try again ❌",
-      });
-    }
-  };
+ const handleSubmit = () => {
+  if (!answer.trim()) {
+    setPopupConfig({
+      show: true,
+      type: "warning",
+      message:
+        lang === "ar"
+          ? "من فضلك اكتب إجابة أولاً ⚠️"
+          : "Please enter an answer first ⚠️",
+    });
+    return;
+  }
+
+  // ✅ نوحّد الكيس (مثلاً نخلي الاتنين lowerCase)
+  const normalizedAnswer = answer.trim().toLowerCase();
+  const normalizedWords = continue_words.map((w) => w.toLowerCase());
+
+  if (normalizedWords.includes(normalizedAnswer)) {
+    setPopupConfig({
+      show: true,
+      type: "success",
+      message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
+    });
+  } else {
+    setPopupConfig({
+      show: true,
+      type: "error",
+      message: lang === "ar" ? "إجابتك غير صحيحة ❌" : "Wrong Answer ❌",
+    });
+  }
+};
+
 
   // 🆕 Enter key listener
   useEffect(() => {
@@ -80,12 +102,12 @@ export default function Q4D2() {
   }, []);
 
   return (
-    <div className="firstStep three bodyColor_move">
+    <div className="firstStep three bodyColor_organdi">
       {/* Header */}
       <div className="header relative">
         <img className="logoLanding" src={logo} alt="Logo" />
 
-        {/* ✅ زر لتغيير اللغة */}
+        {/* ✅ زر تغيير اللغة */}
         <button
           className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
           onClick={toggleLang}
@@ -95,7 +117,7 @@ export default function Q4D2() {
         </button>
 
         <p className="numberQuestion" dir={lang === "en" ? "ltr" : "rtl"}>
-          {lang === "ar" ? "السؤال الرابع" : "Question 4"}
+          {lang === "ar" ? "السؤال الأول" : "Question 1"}
         </p>
 
         <svg
@@ -118,73 +140,53 @@ export default function Q4D2() {
           />
         </svg>
 
-        <div className="questionUser questionUserQ3">
-          <div
-            data-aos="fade-right"
-            data-aos-delay="100"
-            className="dateWelcome"
-            style={{ zIndex: "2" }}
-          >
+        <div className="questionUser">
+          <div className="dateWelcome">
             <p dir={lang === "ar" ? "rtl" : "ltr"}>
               {lang === "ar"
-                ? "رائع ! اليوم أثبت أنك قد التحدي مهما كانت الأسئلة صعبة و فزت بالوسام الثاني ."
-                : "Well said ! Today you proved you’re up for any challenge, no matter how tough. You’ve earned your second badge ! ."}
+                ? "كلمة منك تترك أثر كبير. صارت جزء من عزّتنا!"
+                : "One word from you leaves a big impact. It became part of our pride!"}
             </p>
           </div>
-          <img
-            data-aos="fade-left"
-            data-aos-delay="100"
-            src={userWelcome}
-            alt="User Welcome"
-            style={{ zIndex: "2" }}
-          />
+          <img src={userWelcome} alt="User Welcome" />
         </div>
       </div>
 
       {/* Body */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bodycontent ">
-          <div
-            className="containerQuestionChoose Q3D2 "
-            style={{ background: "#46417e" }}
-          >
-            <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="question contentQ4D2"
-              style={{ translate: "0px -20px" }}
-              dir={lang === "ar" ? "rtl" : "ltr"}
-            >
-              <h3 style={{ lineHeight: "23px" }}>
-                {lang === "ar"
-                  ? "يمتد الممشي البحري الرئيسي في كورنيش جازان الجنوبي بطول كم متر تقريباً ؟"
-                  : "Roughly how many meters long is the main seafront walkway at South Jazan Corniche?"}
-              </h3>
+      <div className="max-w-7xl mx-auto">
+        <div className="bodycontent">
+          <div className="containerQuestionChoose">
+            {/* ✅ عرض الكلمات حسب اللغة */}
+            <div className="continue_words">
+              {continue_words.map((word, idx) => (
+                <p key={idx}>{word}</p>
+              ))}
+            </div>
 
+            <div className="question" dir={lang === "ar" ? "rtl" : "ltr"}>
+              <h3>
+                {lang === "ar"
+                  ? "اختر كلمة من الشاشات من حولك"
+                  : "Pick a word from the screens around you"}
+              </h3>
               <div className="ContaineritemBox">
-                {options.map((opt, index) => (
-                  <div
-                    key={index}
-                    onClick={() => setAnswer(index)}
-                    className={`itemBox cursor-pointer ${
-                      answer === index ? "border-2 border-green-600" : ""
-                    } ${wrong === index ? "wrong" : ""}`}
-                  >
-                    <p dir={lang === "ar" ? "rtl" : "ltr"}>{opt}</p>
-                  </div>
-                ))}
+                <div className="inputGroup">
+                  <input
+                    type="text"
+                    placeholder={lang === "ar" ? "اكتب اجابتك" : "Enter your answer"}
+                    value={answer}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    style={{textTransform:"capitalize"}}
+                  />
+                </div>
               </div>
             </div>
 
             {/* Submit button */}
-            <div
-             
-              className="buttonGroup mt-6"
-            >
+            <div className="buttonGroup mt-6">
               <button
                 className="btn btn-success px-4 py-2"
                 onClick={handleSubmit}
-                style={{ translate: "0px -30px" }}
                 dir={lang === "ar" ? "rtl" : "ltr"}
               >
                 {lang === "ar" ? "ارسال الاجابة" : "Submit Answer"}
@@ -214,7 +216,11 @@ export default function Q4D2() {
         type={popupConfig.type}
         message={popupConfig.message}
         onClose={() => setPopupConfig({ ...popupConfig, show: false })}
-        onNext={() => navigate("/shield/Day2")}
+        onNext={() => {
+          if (popupConfig.type === "success") {
+            navigate("/shield/day3");
+          }
+        }}
       />
     </div>
   );

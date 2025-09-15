@@ -10,7 +10,7 @@ import userWelcome from "../assets/img/UserWelcome.svg";
 
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../Popup/Popup";
+import Popup from "../PopUp/PopUp";
 
 // ✅ Popup
 
@@ -141,65 +141,65 @@ export default function Q2D1() {
           <div className="bodycontent">
             <div className="containerQuestionChoose">
               <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="question"
-            >
+                data-aos="zoom-in-up"
+                data-aos-delay="300"
+                className="question"
+              >
                 <h3>
                   {lang === "ar"
                     ? "كم سنة مرت علي توحيد مملكتنا الغالية ؟"
                     : "How many years has it been since our beloved Kingdom was unified?"}
                 </h3>
 
-              <div className="ContaineritemBox">
-                <div className="inputGroup">
-                  <input
-                    dir={lang === "ar" ? "rtl" : "ltr"}
-                    type="number"
-                    placeholder={
-                      lang === "ar"
-                        ? "ادخل عدد السنوات"
-                        : "Enter number of years"
-                    }
-                    value={answer}
-                    onChange={(e) => setAnswer(e.target.value)}
-                    className="border px-3 py-2 rounded w-full"
-                  />
+                <div className="ContaineritemBox">
+                  <div className="inputGroup">
+                    <input
+                      dir={lang === "ar" ? "rtl" : "ltr"}
+                      type="number"
+                      placeholder={
+                        lang === "ar"
+                          ? "ادخل عدد السنوات"
+                          : "Enter number of years"
+                      }
+                      value={answer}
+                      onChange={(e) => setAnswer(e.target.value)}
+                      className="border px-3 py-2 rounded w-full"
+                    />
+                  </div>
                 </div>
+              </div>
+
+              {/* Submit button */}
+              <div
+                data-aos="zoom-in-up"
+                data-aos-delay="300"
+                className="buttonGroup mt-4"
+              >
+                <button
+                  className="btn btn-success px-4 py-2"
+                  onClick={handleSubmit}
+                >
+                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="buttonGroup mt-4"
-            >
-              <button
-                className="btn btn-success px-4 py-2"
-                onClick={handleSubmit}
-              >
-                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-              </button>
-            </div>
+            {/* Footer */}
+            <footer className="flex justify-center gap-6 mt-6">
+              <img
+                className="firstLogoFooter"
+                src={firstLogoFooter}
+                alt="First Footer Logo"
+              />
+              <img
+                className="secoundLogoFooter"
+                src={secoundLogoFooter}
+                alt="Second Footer Logo"
+              />
+            </footer>
           </div>
-
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
         </div>
       </div>
-
       {/* ✅ Popup Component */}
       <Popup
         show={showPopup}

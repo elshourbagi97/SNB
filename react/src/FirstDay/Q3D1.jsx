@@ -5,15 +5,14 @@ import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
- import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/UserWelcome.svg";
 // import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../Popup/Popup";
+import Popup from "../PopUp/PopUp";
 
 // ✅ استدعاء الـ Popup
-
 export default function Q3D1() {
   const navigate = useNavigate();
   const [answer, setAnswer] = useState(null);
@@ -35,15 +34,15 @@ export default function Q3D1() {
   const options =
     lang === "ar"
       ? [
-        " GDP - أ - الناتج المحلي الاجمالي ", // ✅ الإجابة الصحيحة
-        "CPI - ب - مؤشر أسعار المستهلك ",
-        "DJI - ج - مؤشر داوجونز ",
-      ]
+          " GDP - أ - الناتج المحلي الاجمالي ", // ✅ الإجابة الصحيحة
+          "CPI - ب - مؤشر أسعار المستهلك ",
+          "DJI - ج - مؤشر داوجونز ",
+        ]
       : [
-        "A - Gross Domestic Product - GDP", // ✅ correct
-        "B - Consumer Price Index - CPI",
-        "C - Dow Jones Index - DJI",
-      ];
+          "A - Gross Domestic Product - GDP", // ✅ correct
+          "B - Consumer Price Index - CPI",
+          "C - Dow Jones Index - DJI",
+        ];
 
   const correctAnswer = 0;
 
@@ -172,22 +171,23 @@ export default function Q3D1() {
                   : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
               </h3>
 
-                <div className="ContaineritemBox">
-                  {options.map((opt, index) => (
-                    <div
-                      key={index}
-                      onClick={() => {
-                        setAnswer(index);
-                        setWrong(null);
-                      }}
-                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
-                        } ${wrong === index ? " wrong" : ""}`}
-                    >
-                      <p>{opt}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="ContaineritemBox">
+                {options.map((opt, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      setAnswer(index);
+                      setWrong(null);
+                    }}
+                    className={`itemBox cursor-pointer ${
+                      answer === index ? "border-2 border-green-600" : ""
+                    } ${wrong === index ? " wrong" : ""}`}
+                  >
+                    <p>{opt}</p>
+                  </div>
+                ))}
               </div>
+            </div>
 
             {/* Submit button */}
             <div
@@ -205,12 +205,9 @@ export default function Q3D1() {
               </button>
             </div>
           </div>
-
-
-          </div>
         </div>
       </div>
-      {/* Footer */}
+
       {/* Pattern Footer */}
       <div className="patterFooter">
         <svg
@@ -235,6 +232,7 @@ export default function Q3D1() {
           </defs>
         </svg>
       </div>
+
       <footer className="flex justify-center gap-6 mt-6">
         <img
           className="firstLogoFooter"
@@ -255,8 +253,8 @@ export default function Q3D1() {
           popupType === "warning"
             ? "warning"
             : popupType === "error"
-              ? "error"
-              : "success"
+            ? "error"
+            : "success"
         }
         onClose={() => setShowPopup(false)}
         onNext={() => navigate("/shield/Day1")}

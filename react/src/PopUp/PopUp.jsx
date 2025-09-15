@@ -25,10 +25,10 @@ export default function Popup({ show, type, message, onClose, onNext }) {
   };
 
   // ✅ الفيديوهات حسب النوع
-  const videos = {
-    success: "/Happy.webm",
-    error: "/Upset.webm",
-    warning: "/Upset.webm",
+  const imgs = {
+    success: "/Happy.gif",
+    error: "/Upset.gif",
+    warning: "/Upset.gif",
   };
 
   return (
@@ -47,8 +47,8 @@ export default function Popup({ show, type, message, onClose, onNext }) {
             </h2>
 
             {/* 🎉 فيديو النجاح */}
-            <video
-              src={videos.success}
+            <img
+              src={imgs.success}
               autoPlay
               muted
               loop
@@ -79,8 +79,8 @@ export default function Popup({ show, type, message, onClose, onNext }) {
             </p>
 
             {/* ❌ فيديو الخطأ */}
-            <video
-              src={videos.error}
+            <img
+              src={imgs.error}
               autoPlay
               muted
               loop
@@ -106,8 +106,8 @@ export default function Popup({ show, type, message, onClose, onNext }) {
             </p>
 
             {/* ⚠️ فيديو التحذير */}
-            <video
-              src={videos.warning}
+            <img
+              src={imgs.warning}
               autoPlay
               muted
               loop
