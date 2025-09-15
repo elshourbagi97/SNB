@@ -5,7 +5,9 @@ import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+ import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
+
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import Popup from "../PopUp/PopUp";
@@ -33,15 +35,15 @@ export default function Q3D1() {
   const options =
     lang === "ar"
       ? [
-          " GDP - أ - الناتج المحلي الاجمالي ", // ✅ الإجابة الصحيحة
-          "CPI - ب - مؤشر أسعار المستهلك ",
-          "DJI - ج - مؤشر داوجونز ",
-        ]
+        " GDP - أ - الناتج المحلي الاجمالي ", // ✅ الإجابة الصحيحة
+        "CPI - ب - مؤشر أسعار المستهلك ",
+        "DJI - ج - مؤشر داوجونز ",
+      ]
       : [
-          "A - Gross Domestic Product - GDP", // ✅ correct
-          "B - Consumer Price Index - CPI",
-          "C - Dow Jones Index - DJI",
-        ];
+        "A - Gross Domestic Product - GDP", // ✅ correct
+        "B - Consumer Price Index - CPI",
+        "C - Dow Jones Index - DJI",
+      ];
 
   const correctAnswer = 0;
 
@@ -127,7 +129,7 @@ export default function Q3D1() {
           />
         </svg>
 
-        <div className={`questionUser ${lang==='ar'?"Q3ArUser":"Q3User"} `}>
+        <div className={`questionUser ${lang === 'ar' ? "Q3ArUser" : "Q3User"} `}>
           <div
             data-aos="fade-right"
             data-aos-delay="100"
@@ -150,68 +152,94 @@ export default function Q3D1() {
       </div>
 
       {/* Body */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bodycontent">
-          <div className={`containerQuestionChoose ${lang==="ar"?"Q3ArContent":"Q3Content"}`}>
-            <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="question Q3"
-            >
-              <h3>
-                {lang === "ar"
-                  ? "أنا المؤشر اللي يختصر قوة الاقتصاد... من أكون ؟"
-                  : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
-              </h3>
+      <div className="fullcontainer">
+        <div className="max-w-4xl mx-auto">
+          <div className="bodycontent">
+            <div className={`containerQuestionChoose ${lang === "ar" ? "Q3ArContent" : "Q3Content"}`}>
+              <div
+                data-aos="zoom-in-up"
+                data-aos-delay="300"
+                className="question Q3"
+              >
+                <h3>
+                  {lang === "ar"
+                    ? "أنا المؤشر اللي يختصر قوة الاقتصاد... من أكون ؟"
+                    : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
+                </h3>
 
-              <div className="ContaineritemBox">
-                {options.map((opt, index) => (
-                  <div
-                    key={index}
-                    onClick={() => {
-                      setAnswer(index);
-                      setWrong(null);
-                    }}
-                    className={`itemBox cursor-pointer ${
-                      answer === index ? "border-2 border-green-600" : ""
-                    } ${wrong === index ? " wrong" : ""}`}
-                  >
-                    <p>{opt}</p>
-                  </div>
-                ))}
+                <div className="ContaineritemBox">
+                  {options.map((opt, index) => (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setAnswer(index);
+                        setWrong(null);
+                      }}
+                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
+                        } ${wrong === index ? " wrong" : ""}`}
+                    >
+                      <p>{opt}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Submit button */}
+              <div
+                // data-aos="zoom-in-up"
+                // data-aos-delay="300"
+                className={`buttonGroup mt-6 ${lang === "ar" ? "btn-Ar-3" : "btn-3"}`}
+              >
+                <button
+                  className="btn btn-success px-4 py-2"
+                  onClick={handleSubmit}
+                >
+                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className={`buttonGroup mt-6 ${lang==="ar" ?"btn-Ar-3":"btn-3" }`}
-            >
-              <button
-                className="btn btn-success px-4 py-2"
-                onClick={handleSubmit}
-              >
-                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-              </button>
-            </div>
-          </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
+          </div>
         </div>
       </div>
+      {/* Footer */}
+      {/* Pattern Footer */}
+      <div className="patterFooter">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="858"
+          height="441"
+          viewBox="0 0 858 441"
+          fill="none"
+        >
+          {/* محتوى الـ SVG زي ما هو */}
+          <g clipPath="url(#clip0_789_92342)">
+            <path
+              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
+              fill="#249B98"
+            />
+            {/* باقي ال paths زي الكود الأصلي */}
+          </g>
+          <defs>
+            <clipPath id="clip0_789_92342">
+              <rect width="858" height="441" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      <footer className="flex justify-center gap-6 mt-6">
+        <img
+          className="firstLogoFooter"
+          src={firstLogoFooter}
+          alt="First Footer Logo"
+        />
+        <img
+          className="secoundLogoFooter"
+          src={secoundLogoFooter}
+          alt="Second Footer Logo"
+        />
+      </footer>
 
       {/* ✅ Popup Component */}
       <Popup
@@ -220,8 +248,8 @@ export default function Q3D1() {
           popupType === "warning"
             ? "warning"
             : popupType === "error"
-            ? "error"
-            : "success"
+              ? "error"
+              : "success"
         }
         onClose={() => setShowPopup(false)}
         onNext={() => navigate("/shield/Day1")}
