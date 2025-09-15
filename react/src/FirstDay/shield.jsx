@@ -111,7 +111,30 @@ export default function Shield() {
           <p dir={lang === "ar" ? "rtl" : "ltr"}>{t.badgeText}</p>
         </div>
       </div>
-
+{/* Pattern Footer */}
+      <div className="patterFooter">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="858"
+          height="441"
+          viewBox="0 0 858 441"
+          fill="none"
+        >
+          {/* محتوى الـ SVG زي ما هو */}
+          <g clipPath="url(#clip0_789_92342)">
+            <path
+              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
+              fill="#249B98"
+            />
+            {/* باقي ال paths زي الكود الأصلي */}
+          </g>
+          <defs>
+            <clipPath id="clip0_789_92342">
+              <rect width="858" height="441" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
       <footer>
         <img className="firstLogoFooter" src={firstLogoFooter} alt="" />
         <img className="secoundLogoFooter" src={secondLogoFooter} alt="" />

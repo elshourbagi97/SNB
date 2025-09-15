@@ -1,13 +1,171 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SNB Bank </title>
-  </head>
-  <body>
-    <div id="root" class="mobile-frame"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <!-- Correct stylesheet link -->
+  <link rel="stylesheet" href="/src/assets/css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>SNB Bank</title>
+  <!-- <style>
+    .max-w-7xl.mx-auto,
+    .max-w-4xl.mx-auto,
+    .max-w-7xl.mx-auto.mt-20,
+    .max-w-7xl.mx-auto.mt-28 {
+      min-height: 100vh;
+      background-color: #008787;
+    }
+
+    .fullcontainer {
+      min-height: auto;
+    }
+
+    .containerQuestionChoose {
+      height: 100% !important;
+    }
+
+    .firstStep.shiledpage {
+      overflow-y: auto;
+    }
+.firstStep footer {
+
+        position: relative !important;
+      }
+
+    /* On desktop only */
+    @media (min-width: 760px) {
+      body {
+        margin: 0;
+        background: #f5f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+      }
+
+      /* Force app into mobile frame on ALL screens */
+      .mobileframe {
+        width: 100%;
+        max-width: 430px;
+        /* phone width */
+        min-height: 100vh;
+        background: #fff;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+        /* allow scroll if content is taller */
+      }
+
+      /* footer inside each page */
+      .footer {
+        padding: 15px;
+        background: #f1f1f1;
+        text-align: center;
+      }
+
+      .firstStep {
+        overflow-y: auto;
+      }
+
+      .firstStep footer {
+
+        position: relative !important;
+      }
+
+      .max-w-7xl.mx-auto,
+      .max-w-4xl.mx-auto,
+      .max-w-7xl.mx-auto.mt-20,
+      .max-w-7xl.mx-auto.mt-28 {
+        min-height: 100vh;
+        background-color: #008787;
+      }
+
+      .fullcontainer {
+        min-height: fit-content;
+      }
+
+      .containerQuestionChoose {
+        min-height: 100vh !important;
+      }
+
+      /* .Q3ArContent,
+.Q1Content{
+  min-height: 100vh;
+} */
+    }
+  </style> -->
+  <style>
+    .max-w-7xl.mx-auto,
+.max-w-4xl.mx-auto,
+.max-w-7xl.mx-auto.mt-20,
+.max-w-7xl.mx-auto.mt-28 {
+  min-height: 100vh;
+  background-color: #008787;
+}
+
+.fullcontainer {
+  min-height: auto; /* safer than fit-content */
+}
+
+.containerQuestionChoose {
+  height: 100% !important;
+}
+
+.firstStep {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.firstStep footer {
+  margin-top: auto;
+  position: relative !important;
+}
+
+/* On desktop only */
+@media (min-width: 760px) {
+  body {
+    margin: 0;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  /* Force app into mobile frame on ALL screens */
+  .mobileframe {
+    width: 100%;
+    max-width: 430px; /* phone width */
+    min-height: 100vh;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    border-radius: 20px;
+  }
+
+  /* footer inside each page */
+  .footer {
+    padding: 15px;
+    background: #f1f1f1;
+    text-align: center;
+  }
+
+  .containerQuestionChoose {
+    min-height: 100vh !important;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+  <div id="root" class="mobileframe"></div>
+  <script type="module" src="/src/main.jsx"></script>
+
+</body>
+
 </html>

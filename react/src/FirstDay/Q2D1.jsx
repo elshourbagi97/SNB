@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 // صور
 import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
+
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import Popup from "../PopUp/PopUp";
@@ -14,9 +16,9 @@ import Popup from "../PopUp/PopUp";
 
 export default function Q2D1() {
   const navigate = useNavigate();
-  const [answer, setAnswer] = useState(""); 
+  const [answer, setAnswer] = useState("");
   const [popupMessage, setPopupMessage] = useState("");
-  const [popupType, setPopupType] = useState(""); 
+  const [popupType, setPopupType] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
   // ✅ اللغة من localStorage
@@ -126,46 +128,72 @@ export default function Q2D1() {
       </div>
 
       {/* Body */}
-      <div className="max-w-7xl mx-auto">
-        <div className="bodycontent">
-          <div className="containerQuestionChoose">
-            <div data-aos="zoom-in-up" data-aos-delay="300" className="question">
-              <h3>
-                {lang === "ar"
-                  ? "كم سنة مرت علي توحيد مملكتنا الغالية ؟"
-                  : "How many years has it been since our beloved Kingdom was unified?"}
-              </h3>
+      <div className="fullcontainer">
+        <div className="max-w-7xl mx-auto">
+          <div className="bodycontent">
+            <div className="containerQuestionChoose">
+              <div data-aos="zoom-in-up" data-aos-delay="300" className="question">
+                <h3>
+                  {lang === "ar"
+                    ? "كم سنة مرت علي توحيد مملكتنا الغالية ؟"
+                    : "How many years has it been since our beloved Kingdom was unified?"}
+                </h3>
 
-              <div className="ContaineritemBox">
-                <div className="inputGroup">
-                  <input
-                    dir={lang === "ar" ? "rtl" : "ltr"}
-                    type="number"
-                    placeholder={lang === "ar" ? "ادخل عدد السنوات" : "Enter number of years"}
-                    value={answer}
-                    onChange={(e) => setAnswer(e.target.value)}
-                    className="border px-3 py-2 rounded w-full"
-                  />
+                <div className="ContaineritemBox">
+                  <div className="inputGroup">
+                    <input
+                      dir={lang === "ar" ? "rtl" : "ltr"}
+                      type="number"
+                      placeholder={lang === "ar" ? "ادخل عدد السنوات" : "Enter number of years"}
+                      value={answer}
+                      onChange={(e) => setAnswer(e.target.value)}
+                      className="border px-3 py-2 rounded w-full"
+                    />
+                  </div>
                 </div>
+              </div>
+
+              {/* Submit button */}
+              <div className="buttonGroup mt-4">
+                <button className="btn btn-success px-4 py-2" onClick={handleSubmit}>
+                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div data-aos="zoom-in-up" data-aos-delay="300" className="buttonGroup mt-4">
-              <button className="btn btn-success px-4 py-2" onClick={handleSubmit}>
-                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-              </button>
-            </div>
-          </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img className="firstLogoFooter" src={firstLogoFooter} alt="First Footer Logo" />
-            <img className="secoundLogoFooter" src={secoundLogoFooter} alt="Second Footer Logo" />
-          </footer>
+          </div>
         </div>
       </div>
-
+      {/* Pattern Footer */}
+      <div className="patterFooter">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="858"
+          height="441"
+          viewBox="0 0 858 441"
+          fill="none"
+        >
+          {/* محتوى الـ SVG زي ما هو */}
+          <g clipPath="url(#clip0_789_92342)">
+            <path
+              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
+              fill="#249B98"
+            />
+            {/* باقي ال paths زي الكود الأصلي */}
+          </g>
+          <defs>
+            <clipPath id="clip0_789_92342">
+              <rect width="858" height="441" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+      {/* Footer */}
+      <footer className="flex justify-center gap-6 mt-6">
+        <img className="firstLogoFooter" src={firstLogoFooter} alt="First Footer Logo" />
+        <img className="secoundLogoFooter" src={secoundLogoFooter} alt="Second Footer Logo" />
+      </footer>
       {/* ✅ Popup Component */}
       <Popup
         show={showPopup}

@@ -5,7 +5,9 @@ import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+ import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
+
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 
@@ -149,12 +151,13 @@ export default function Q1D1() {
       </div>
 
       {/* Body */}
+      <div className="fullcontainer">
       <div className="max-w-4xl mx-auto">
         <div className="bodycontent">
           <div className="containerQuestionChoose Q1Content">
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
+              // data-aos="zoom-in-up"
+              // data-aos-delay="300"
               className="question Q1"
             >
               <h3>
@@ -170,6 +173,7 @@ export default function Q1D1() {
                     onClick={() => {
                       setAnswer(index);
                       setWrong(null);
+                      // handleSubmit();
                     }}
                     className={`itemBox cursor-pointer ${
                       answer === index ? "border-2 border-green-600" : ""
@@ -183,8 +187,8 @@ export default function Q1D1() {
 
             {/* Submit button */}
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
+              // data-aos="zoom-in-up"
+              // data-aos-delay="300"
               className="buttonGroup mt-6"
             >
               <button
@@ -196,8 +200,37 @@ export default function Q1D1() {
             </div>
           </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
+       
+        </div>
+         </div>
+        
+      </div>
+      {/* Pattern Footer */}
+      <div className="patterFooter">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="858"
+          height="441"
+          viewBox="0 0 858 441"
+          fill="none"
+        >
+          {/* محتوى الـ SVG زي ما هو */}
+          <g clipPath="url(#clip0_789_92342)">
+            <path
+              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
+              fill="#249B98"
+            />
+            {/* باقي ال paths زي الكود الأصلي */}
+          </g>
+          <defs>
+            <clipPath id="clip0_789_92342">
+              <rect width="858" height="441" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+        {/* Footer */}
+        <footer className="flex justify-center gap-6 mt-6">
             <img
               className="firstLogoFooter"
               src={firstLogoFooter}
@@ -209,8 +242,6 @@ export default function Q1D1() {
               alt="Second Footer Logo"
             />
           </footer>
-        </div>
-      </div>
 
       {/* ✅ Popup Component */}
       <Popup

@@ -9,7 +9,8 @@ import "aos/dist/aos.css";
 
 // Images
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+ import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 
@@ -52,7 +53,12 @@ export default function Login() {
     { id: "456", name: "Adham", nextRoute: "/map2" }, 
     { id: "789", name: "Mahmoud", nextRoute: "/Home1" }, 
   ];
-
+const videos = {
+    success: "/Happy.webm",
+    error: "/Upset.webm",
+    warning: "/Upset.webm",
+    neutral: "/Neutral.webm"
+  };
   const handleSubmit = (e) => {
   e.preventDefault();
 
@@ -62,8 +68,9 @@ export default function Login() {
     return;
   }
 
-  const foundUser = users.find((user) => user.id === userId.trim());
-
+  // const foundUser = users.find((user) => user.id === userId.trim());
+ const defaultUser = { id: "000", nextRoute: "/Home1" }; // Default user if not found
+ const foundUser = defaultUser; // Always use default user for testing
   if (foundUser) {
   setPopupMessage("");
   setShowPopup(false);
@@ -135,10 +142,19 @@ export default function Login() {
             src={userWelcome}
             alt="User Welcome"
           />
+          {/* <video
+              src={videos.neutral}
+              autoPlay
+              muted
+              loop
+              className="w-full rounded mb-4"
+            /> */}
+
         </div>
       </div>
 
       {/* Body Content */}
+      <div className="fullcontainer">
       <div className="max-w-7xl mx-auto">
         <div className="bodycontent">
           <div className="containerQuestionChoose">
@@ -166,7 +182,35 @@ export default function Login() {
             </div>
           </div>
 
-          <footer>
+         
+        </div>
+      </div>
+      </div>
+      {/* Pattern Footer */}
+      <div className="patterFooter">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="858"
+          height="441"
+          viewBox="0 0 858 441"
+          fill="none"
+        >
+          {/* محتوى الـ SVG زي ما هو */}
+          <g clipPath="url(#clip0_789_92342)">
+            <path
+              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
+              fill="#249B98"
+            />
+            {/* باقي ال paths زي الكود الأصلي */}
+          </g>
+          <defs>
+            <clipPath id="clip0_789_92342">
+              <rect width="858" height="441" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
+ <footer>
             <img
               className="firstLogoFooter"
               src={firstLogoFooter}
@@ -178,9 +222,6 @@ export default function Login() {
               alt="Second Logo"
             />
           </footer>
-        </div>
-      </div>
-
       {/* ✅ Popup */}
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">

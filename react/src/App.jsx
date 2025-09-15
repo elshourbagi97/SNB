@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { Routes,Route } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Routes, Route, useNavigate } from 'react-router-dom'
+
 import Login from './LoginPage/Login'
 import LandingPage1 from './FirstDay/landingPage1'
 import MapPage1 from './FirstDay/map1'
@@ -15,7 +16,16 @@ import Q3D2 from './SecondDay/Q3D2'
 import Q4D2 from './SecondDay/Q4D2'
 import Q5D2 from './SecondDay/Q5D2'
 import Shield2 from './SecondDay/shield2'
+
 function App() {
+const navigate = useNavigate();
+
+  useEffect(() => {
+    // Always force user to /Home1 after reload
+    if (window.location.pathname !== "/") {
+      navigate("/", { replace: true });
+    }
+  }, []);
 
   return (
     <Routes>
