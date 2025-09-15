@@ -1,23 +1,66 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Aos from "aos";
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secondLogoFooter from "../assets/img/secoundLogoFooter.svg";
 
-
 export default function Shield2() {
+  const [lang, setLang] = useState("ar");
 
-    useEffect(() => {
-      Aos.init({ duration: 1000 });
-    }, []);
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+
+    // 🟢 جلب اللغة من localStorage
+    const storedLang = localStorage.getItem("language") || "ar";
+    setLang(storedLang);
+  }, []);
+
+  // 🟢 تغيير اللغة
+  const toggleLanguage = () => {
+    const newLang = lang === "ar" ? "en" : "ar";
+    setLang(newLang);
+    localStorage.setItem("language", newLang);
+  };
+
+  // 🟢 النصوص باللغتين
+  const translations = {
+    ar: {
+      firstTitle: "وسامك لليوم الثاني",
+      secondTitle:
+        "كل مشاركة تقربك أكثر من الصورة الكاملة  ... بكرة محطة جديدة، عزنا ما يكتمل إلا بكم .",
+      badgeText: "أنا صانع الأثر",
+      langBtn: "English",
+    },
+    en: {
+      firstTitle: "Your Badge for Day Two",
+      secondTitle:
+        "Every contribution brings the full picture closer ... Tomorrow is a new stop … Our pride is only complete with you .",
+      badgeText: "I Create Impact",
+      langBtn: "العربية",
+    },
+  };
+
+  const t = translations[lang];
 
   return (
-    <div className="firstStep shiledpage  " style={{background:"#7670b2"}}>
+    <div className="firstStep shiledpage" style={{ background: "#7670b2" }}>
+      {/* Header */}
       <div className="header">
         <img className="logoLanding" src={logo} alt="logo" />
+
+        {/* 🆕 زرار تغيير اللغة */}
+        <button
+          onClick={toggleLanguage}
+          dir={lang==="ar"?"rtl":"ltr"}
+          className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
+          style={{ background: "#004F54", border: "3px solid #011b1dff" }}
+        >
+          {t.langBtn}
+        </button>
+
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="989"
@@ -44,11 +87,33 @@ export default function Shield2() {
         </svg>
       </div>
 
+      {/* Body */}
       <div className="containerShiled">
-        <p  dir='rtl' data-aos="fade-down" data-aos-delay="200" className="firstP_shiled" style={{translate:"10px -20px"}}>وسامك لليوم الثاني</p>
-        <p dir="rtl" data-aos="fade-up" data-aos-delay="200"  className="secoundP_shiled" style={{lineHeight:"30px"}}>كل مشاركة تقربك أكثر من الصورة الكاملة  بكرة محطة جديدة .... عزنا ما يكتمل إلا بكم</p>
-        <div className="containerinner rotate-wrap" style={{ position: "relative" }}>
-          <svg
+        <p
+          dir={lang === "ar" ? "rtl" : "ltr"}
+          data-aos="fade-down"
+          data-aos-delay="200"
+          className="firstP_shiled"
+          style={{ translate: "10px -20px" }}
+        >
+          {t.firstTitle}
+        </p>
+        <p
+          dir={lang === "ar" ? "rtl" : "ltr"}
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="secoundP_shiled"
+          style={{ lineHeight: "30px" }}
+        >
+          {t.secondTitle}
+        </p>
+
+        {/* Badge */}
+        <div
+          className="containerinner rotate-wrap"
+          style={{ position: "relative" }}
+        >
+        <svg
             xmlns="http://www.w3.org/2000/svg"
             width="480"
             height="564"
@@ -71,10 +136,13 @@ export default function Shield2() {
               />
             </g>
           </svg>
-          <p dir="rtl" style={{fontSize:"32px"}}>أنا صانع الأثر</p>
+          <p dir={lang === "ar" ? "rtl" : "ltr"} style={{ fontSize: "32px" }}>
+            {t.badgeText}
+          </p>
         </div>
       </div>
 
+      {/* Footer */}
       <footer>
         <img className="firstLogoFooter" src={firstLogoFooter} alt="" />
         <img className="secoundLogoFooter" src={secondLogoFooter} alt="" />
@@ -82,3 +150,4 @@ export default function Shield2() {
     </div>
   );
 }
+

@@ -37,7 +37,9 @@ export default function Q1D2() {
   const handleSubmit = () => {
     if (selected === null) {
       setPopupMessage(
-        lang === "ar" ? "من فضلك اختار الإجابة أولاً ⚠️" : "Please select an answer first ⚠️"
+        lang === "ar"
+          ? "من فضلك اختار الإجابة أولاً ⚠️"
+          : "Please select an answer first ⚠️"
       );
       setPopupType("warning");
       setShowPopup(true);
@@ -46,12 +48,18 @@ export default function Q1D2() {
 
     if (selected === correctAnswer) {
       setWrong(null);
-      setPopupMessage(lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉");
+      setPopupMessage(
+        lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉"
+      );
       setPopupType("success");
       setShowPopup(true);
     } else {
       setWrong(selected);
-      setPopupMessage(lang === "ar" ? "إجابتك غير صحيحة، حاول مرة أخري ❌" : "Wrong answer, try again ❌");
+      setPopupMessage(
+        lang === "ar"
+          ? "إجابتك غير صحيحة، حاول مرة أخري ❌"
+          : "Wrong answer, try again ❌"
+      );
       setPopupType("error");
       setShowPopup(true);
     }
@@ -81,9 +89,17 @@ export default function Q1D2() {
         >
           {lang === "ar" ? "English" : "العربية"}
         </button>
-        <p className="numberQuestion" dir={lang === "ar" ? "rtl" : "ltr"}>{lang === "ar" ? "السؤال الأول" : "Question 1"}</p>
+        <p className="numberQuestion" dir={lang === "ar" ? "rtl" : "ltr"}>
+          {lang === "ar" ? "السؤال الأول" : "Question 1"}
+        </p>
 
-        <svg xmlns="http://www.w3.org/2000/svg" width="864" height="554" viewBox="0 0 864 554" fill="none">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="864"
+          height="554"
+          viewBox="0 0 864 554"
+          fill="none"
+        >
           <path
             d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
             fill="#004F54"
@@ -98,22 +114,42 @@ export default function Q1D2() {
         </svg>
 
         <div className="questionUser questionUserQ1">
-          <div data-aos="fade-right" data-aos-delay="100" className="dateWelcome">
+          <div
+            data-aos="fade-right"
+            data-aos-delay="100"
+            className="dateWelcome"
+          >
             <p dir={lang === "ar" ? "rtl" : "ltr"} className="paraQ1D2">
-              {lang === "ar" ? "جاوب على السؤال التالي!" : "That’s right ! Raise the bar and move on to the next question."}
+              {lang === "ar"
+                ? "جاوب على السؤال التالي!"
+                : "That’s right ! Raise the bar and move on to the next question."}
             </p>
           </div>
-          <img data-aos="fade-left" data-aos-delay="100" src={userWelcome} alt="User Welcome" />
+          <img
+            data-aos="fade-left"
+            data-aos-delay="100"
+            src={userWelcome}
+            alt="User Welcome"
+          />
         </div>
       </div>
 
       {/* Body */}
       <div className="max-w-4xl mx-auto">
         <div className="bodycontent">
-          <div className="containerQuestionChoose Q1D2" style={{ background: "#46417e" }}>
-            <div data-aos="zoom-in-up" data-aos-delay="300" className="question Q1">
+          <div
+            className="containerQuestionChoose Q1D2"
+            style={{ background: "#46417e" }}
+          >
+            <div
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="question Q1"
+            >
               <h3 dir={lang === "ar" ? "rtl" : "ltr"}>
-                {lang === "ar" ? "أنا مركز الثقل المالي في المملكة من أكون ؟" : "I’m the financial center of gravity in the Kingdom … Who am I ?"}
+                {lang === "ar"
+                  ? "أنا مركز الثقل المالي في المملكة من أكون ؟"
+                  : "I’m the financial center of gravity in the Kingdom … Who am I ?"}
               </h3>
 
               <div className="ContaineritemBox">
@@ -125,7 +161,10 @@ export default function Q1D2() {
                       selected === index ? "border-2 border-green-600" : ""
                     } ${wrong === index ? "wrong" : ""}`}
                   >
-                    <p dir={lang === "ar" ? "rtl" : "ltr"} style={{ paddingBottom: "1px", fontSize: "16px" }}>
+                    <p
+                      dir={lang === "ar" ? "rtl" : "ltr"}
+                      style={{ paddingBottom: "1px", fontSize: "16px" }}
+                    >
                       {opt}
                     </p>
                   </div>
@@ -134,8 +173,16 @@ export default function Q1D2() {
             </div>
 
             {/* Submit button */}
-            <div data-aos="zoom-in-up" data-aos-delay="300" className="buttonGroup mt-6">
-              <button className="btn btn-success px-4 py-2 btn-Q1" onClick={handleSubmit} dir={lang === "ar" ? "rtl" : "ltr"}>
+            <div
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="buttonGroup mt-6"
+            >
+              <button
+                className="btn btn-success px-4 py-2 btn-Q1"
+                onClick={handleSubmit}
+                dir={lang === "ar" ? "rtl" : "ltr"}
+              >
                 {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
               </button>
             </div>
@@ -143,8 +190,16 @@ export default function Q1D2() {
 
           {/* Footer */}
           <footer className="flex justify-center gap-6 mt-6">
-            <img className="firstLogoFooter" src={firstLogoFooter} alt="First Footer Logo" />
-            <img className="secoundLogoFooter" src={secoundLogoFooter} alt="Second Footer Logo" />
+            <img
+              className="firstLogoFooter"
+              src={firstLogoFooter}
+              alt="First Footer Logo"
+            />
+            <img
+              className="secoundLogoFooter"
+              src={secoundLogoFooter}
+              alt="Second Footer Logo"
+            />
           </footer>
         </div>
       </div>

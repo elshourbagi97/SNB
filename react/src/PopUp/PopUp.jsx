@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 
 export default function Popup({ show, type, message, onClose, onNext }) {
@@ -124,4 +123,3 @@ export default function Popup({ show, type, message, onClose, onNext }) {
     </div>
   );
 }
-

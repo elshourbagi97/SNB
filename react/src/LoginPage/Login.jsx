@@ -16,8 +16,8 @@ import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 export default function Login() {
   const navigate = useNavigate();
   const [userId, setUserId] = useState("");
-  const [popupMessage, setPopupMessage] = useState(""); 
-  const [showPopup, setShowPopup] = useState(false); 
+  const [popupMessage, setPopupMessage] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
   const [lang, setLang] = useState("ar"); // ✅ language state
 
   // ✅ Language dictionary
@@ -31,7 +31,7 @@ export default function Login() {
       emptyId: "من فضلك أدخل رقم التعرف الخاص بك ⚠️",
       wrongId: "رقم التعرف غير صحيح ❌",
       back: "رجوع",
-      switchLang: "English"
+      switchLang: "English",
     },
     en: {
       welcome: "Welcome dear employees",
@@ -42,46 +42,43 @@ export default function Login() {
       emptyId: "Please enter your ID ⚠️",
       wrongId: "Invalid ID ❌",
       back: "Back",
-      switchLang: "العربية"
+      switchLang: "العربية",
     },
   };
 
   // Example users
   const users = [
-    { id: "123", name: "Ali", nextRoute: "/map3" }, 
-    { id: "456", name: "Adham", nextRoute: "/map2" }, 
-    { id: "789", name: "Mahmoud", nextRoute: "/Home1" }, 
+    { id: "123", name: "Ali", nextRoute: "/map3" },
+    { id: "456", name: "Adham", nextRoute: "/map2" },
+    { id: "789", name: "Mahmoud", nextRoute: "/Home1" },
   ];
 
   const handleSubmit = (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!userId.trim()) {
-    setPopupMessage(texts[lang].emptyId);
-    setShowPopup(true);
-    return;
-  }
+    if (!userId.trim()) {
+      setPopupMessage(texts[lang].emptyId);
+      setShowPopup(true);
+      return;
+    }
 
-  const foundUser = users.find((user) => user.id === userId.trim());
+    const foundUser = users.find((user) => user.id === userId.trim());
 
-  if (foundUser) {
-  setPopupMessage("");
-  setShowPopup(false);
+    if (foundUser) {
+      setPopupMessage("");
+      setShowPopup(false);
 
-  // ✅ Save language before navigate
-  localStorage.setItem("language", lang);
+      // ✅ Save language before navigate
+      localStorage.setItem("language", lang);
 
-  navigate(foundUser.nextRoute, { 
-    state: { userName: foundUser.name } 
-  });
-
-
-  } else {
-    setPopupMessage(texts[lang].wrongId);
-    setShowPopup(true);
-  }
-};
-
+      navigate(foundUser.nextRoute, {
+        state: { userName: foundUser.name },
+      });
+    } else {
+      setPopupMessage(texts[lang].wrongId);
+      setShowPopup(true);
+    }
+  };
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
@@ -95,15 +92,15 @@ export default function Login() {
 
         {/* Language Switch Button */}
         <button
-  className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
-  onClick={() => {
-    const newLang = lang === "ar" ? "en" : "ar";
-    setLang(newLang);
-    localStorage.setItem("language", newLang); // ✅ نخزن اللغة
-  }}
->
-  {texts[lang].switchLang}
-</button>
+          className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
+          onClick={() => {
+            const newLang = lang === "ar" ? "en" : "ar";
+            setLang(newLang);
+            localStorage.setItem("language", newLang); // ✅ نخزن اللغة
+          }}
+        >
+          {texts[lang].switchLang}
+        </button>
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +123,11 @@ export default function Login() {
         </svg>
 
         <div className="questionUser">
-          <div data-aos="fade-right" data-aos-delay="100" className="dateWelcome">
+          <div
+            data-aos="fade-right"
+            data-aos-delay="100"
+            className="dateWelcome"
+          >
             <p className="paraWelcome">{texts[lang].welcome}</p>
           </div>
           <img
@@ -142,7 +143,11 @@ export default function Login() {
       <div className="max-w-7xl mx-auto">
         <div className="bodycontent">
           <div className="containerQuestionChoose">
-            <div data-aos="zoom-in-up" data-aos-delay="100" className="question">
+            <div
+              data-aos="zoom-in-up"
+              data-aos-delay="100"
+              className="question"
+            >
               <h3>{texts[lang].enterId}</h3>
               <div className="ContaineritemBox">
                 <form onSubmit={handleSubmit}>
@@ -185,7 +190,10 @@ export default function Login() {
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 text-center max-w-md">
-            <h2 className="text-xl font-bold text-red-600 mb-4" dir={lang === "ar" ? "rtl" : "ltr"}>
+            <h2
+              className="text-xl font-bold text-red-600 mb-4"
+              dir={lang === "ar" ? "rtl" : "ltr"}
+            >
               {texts[lang].alert}
             </h2>
             <p className="mb-6" dir={lang === "ar" ? "rtl" : "ltr"}>

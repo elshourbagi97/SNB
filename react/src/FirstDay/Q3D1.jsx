@@ -8,7 +8,7 @@ import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/UserWelcome.svg";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
 // ✅ استدعاء الـ Popup
 
@@ -127,7 +127,9 @@ export default function Q3D1() {
           />
         </svg>
 
-        <div className={`questionUser ${lang==='ar'?"Q3ArUser":"Q3User"} `}>
+        <div
+          className={`questionUser ${lang === "ar" ? "Q3ArUser" : "Q3User"} `}
+        >
           <div
             data-aos="fade-right"
             data-aos-delay="100"
@@ -152,7 +154,11 @@ export default function Q3D1() {
       {/* Body */}
       <div className="max-w-4xl mx-auto">
         <div className="bodycontent">
-          <div className={`containerQuestionChoose ${lang==="ar"?"Q3ArContent":"Q3Content"}`}>
+          <div
+            className={`containerQuestionChoose ${
+              lang === "ar" ? "Q3ArContent" : "Q3Content"
+            }`}
+          >
             <div
               data-aos="zoom-in-up"
               data-aos-delay="300"
@@ -186,7 +192,9 @@ export default function Q3D1() {
             <div
               data-aos="zoom-in-up"
               data-aos-delay="300"
-              className={`buttonGroup mt-6 ${lang==="ar" ?"btn-Ar-3":"btn-3" }`}
+              className={`buttonGroup mt-6 ${
+                lang === "ar" ? "btn-Ar-3" : "btn-3"
+              }`}
             >
               <button
                 className="btn btn-success px-4 py-2"
