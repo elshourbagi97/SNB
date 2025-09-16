@@ -10,7 +10,7 @@ import userWelcome from "../assets/img/UserWelcome.svg";
 
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
 // ✅ Popup
 

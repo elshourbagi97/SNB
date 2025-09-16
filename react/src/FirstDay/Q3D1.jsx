@@ -6,20 +6,19 @@ import "aos/dist/aos.css";
 // صور
 import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/UserWelcome.svg";
-// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
-
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
-// ✅ استدعاء الـ Popup
 export default function Q3D1() {
   const navigate = useNavigate();
   const [answer, setAnswer] = useState(null);
   const [wrong, setWrong] = useState(null);
-  const [popupMessage, setPopupMessage] = useState("");
-  const [popupType, setPopupType] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
+  const [popupConfig, setPopupConfig] = useState({
+    show: false,
+    type: "",
+    message: "",
+  });
 
   // ✅ اللغة من localStorage
   const [lang, setLang] = useState(localStorage.getItem("language") || "ar");
@@ -29,6 +28,9 @@ export default function Q3D1() {
     setLang(newLang);
     localStorage.setItem("language", newLang);
   };
+
+  // ✅ userId من localStorage
+  const userId = localStorage.getItem("userId");
 
   // خيارات السؤال
   const options =
@@ -46,43 +48,64 @@ export default function Q3D1() {
 
   const correctAnswer = 0;
 
-  const handleSubmit = () => {
+  // 🆕 Function to send data to backend
+  const submitToServer = async () => {
+    try {
+      const res = await fetch("http://thekingdomstreasure.com:5000/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: userId,
+          stageNumber: 1, // ✅ Day 1
+        }),
+      });
+      const data = await res.json();
+      console.log("✅ Submitted:", data);
+    } catch (error) {
+      console.error("❌ Submit error:", error);
+    }
+  };
+
+  const handleSubmit = async () => {
     if (answer === null) {
-      setPopupMessage(
-        lang === "ar"
-          ? "من فضلك اختار الإجابة أولاً ⚠️"
-          : "Please select an answer first ⚠️"
-      );
-      setPopupType("warning");
-      setShowPopup(true);
+      setPopupConfig({
+        show: true,
+        type: "warning",
+        message:
+          lang === "ar"
+            ? "من فضلك اختار الإجابة أولاً ⚠️"
+            : "Please select an answer first ⚠️",
+      });
       return;
     }
 
     if (answer === correctAnswer) {
-      setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉"
-      );
-      setPopupType("success");
       setWrong(null);
-      setShowPopup(true);
+      setPopupConfig({
+        show: true,
+        type: "success",
+        message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
+      });
+
+      // ✅ Send to backend
+      await submitToServer();
     } else {
-      setPopupMessage(
-        lang === "ar"
-          ? "إجابتك غير صحيحة، حاول مرة أخري ❌"
-          : "Wrong answer, try again ❌"
-      );
-      setPopupType("error");
       setWrong(answer);
-      setShowPopup(true);
+      setPopupConfig({
+        show: true,
+        type: "error",
+        message:
+          lang === "ar"
+            ? "إجابتك غير صحيحة، حاول مرة أخرى ❌"
+            : "Wrong answer, try again ❌",
+      });
     }
   };
 
   // Enter key listener
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === "Enter") {
-        handleSubmit();
-      }
+      if (e.key === "Enter") handleSubmit();
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
@@ -97,7 +120,6 @@ export default function Q3D1() {
       {/* Header */}
       <div className="header relative">
         <img className="logoLanding" src={logo} alt="Logo" />
-        {/* ✅ زر لتغيير اللغة */}
         <button
           className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
           onClick={toggleLang}
@@ -129,7 +151,7 @@ export default function Q3D1() {
         </svg>
 
         <div
-          className={`questionUser ${lang === "ar" ? "Q3ArUser" : "Q3User"} `}
+          className={`questionUser ${lang === "ar" ? "Q3ArUser" : "Q3User"}`}
         >
           <div
             data-aos="fade-right"
@@ -191,8 +213,6 @@ export default function Q3D1() {
 
             {/* Submit button */}
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
               className={`buttonGroup mt-6 ${
                 lang === "ar" ? "btn-Ar-3" : "btn-3"
               }`}
@@ -205,60 +225,30 @@ export default function Q3D1() {
               </button>
             </div>
           </div>
+
+          {/* Footer */}
+          <footer className="flex justify-center gap-6 mt-6">
+            <img
+              className="firstLogoFooter"
+              src={firstLogoFooter}
+              alt="First Footer Logo"
+            />
+            <img
+              className="secoundLogoFooter"
+              src={secoundLogoFooter}
+              alt="Second Footer Logo"
+            />
+          </footer>
         </div>
       </div>
 
-      {/* Pattern Footer */}
-      <div className="patterFooter">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="858"
-          height="441"
-          viewBox="0 0 858 441"
-          fill="none"
-        >
-          {/* محتوى الـ SVG زي ما هو */}
-          <g clipPath="url(#clip0_789_92342)">
-            <path
-              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
-              fill="#249B98"
-            />
-            {/* باقي ال paths زي الكود الأصلي */}
-          </g>
-          <defs>
-            <clipPath id="clip0_789_92342">
-              <rect width="858" height="441" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
-
-      <footer className="flex justify-center gap-6 mt-6">
-        <img
-          className="firstLogoFooter"
-          src={firstLogoFooter}
-          alt="First Footer Logo"
-        />
-        <img
-          className="secoundLogoFooter"
-          src={secoundLogoFooter}
-          alt="Second Footer Logo"
-        />
-      </footer>
-
       {/* ✅ Popup Component */}
       <Popup
-        show={showPopup}
-        type={
-          popupType === "warning"
-            ? "warning"
-            : popupType === "error"
-            ? "error"
-            : "success"
-        }
-        onClose={() => setShowPopup(false)}
+        show={popupConfig.show}
+        type={popupConfig.type}
+        onClose={() => setPopupConfig({ ...popupConfig, show: false })}
         onNext={() => navigate("/shield/Day1")}
-        message={popupMessage}
+        message={popupConfig.message}
       />
     </div>
   );

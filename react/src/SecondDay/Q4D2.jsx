@@ -8,7 +8,7 @@ import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/UserWelcome.svg";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
 export default function Q4D2() {
   const navigate = useNavigate();
@@ -29,6 +29,9 @@ export default function Q4D2() {
     localStorage.setItem("language", newLang);
   };
 
+  // 🆕 userId من localStorage
+  const userId = localStorage.getItem("userId");
+
   // خيارات السؤال (حسب اللغة)
   const options =
     lang === "ar"
@@ -37,12 +40,33 @@ export default function Q4D2() {
 
   const correctAnswer = 0;
 
-  const handleSubmit = () => {
+  // 🆕 Function to send data to backend
+  const submitToServer = async () => {
+    try {
+      const res = await fetch("http://thekingdomstreasure.com:5000/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: userId,
+          stageNumber: 2, // ✅ Day 2
+        }),
+      });
+      const data = await res.json();
+      console.log("✅ Submitted:", data);
+    } catch (error) {
+      console.error("❌ Submit error:", error);
+    }
+  };
+
+  const handleSubmit = async () => {
     if (answer === null) {
       setPopupConfig({
         show: true,
         type: "warning",
-        message: lang === "ar" ? "من فضلك اختار الإجابة أولاً ⚠️" : "Please select an answer first ⚠️",
+        message:
+          lang === "ar"
+            ? "من فضلك اختار الإجابة أولاً ⚠️"
+            : "Please select an answer first ⚠️",
       });
       return;
     }
@@ -54,12 +78,18 @@ export default function Q4D2() {
         type: "success",
         message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
       });
+
+      // ✅ Send to backend
+      await submitToServer();
     } else {
       setWrong(answer);
       setPopupConfig({
         show: true,
         type: "error",
-        message: lang === "ar" ? "إجابتك غير صحيحة، حاول مرة أخرى ❌" : "Wrong answer, try again ❌",
+        message:
+          lang === "ar"
+            ? "إجابتك غير صحيحة، حاول مرة أخرى ❌"
+            : "Wrong answer, try again ❌",
       });
     }
   };
@@ -177,10 +207,7 @@ export default function Q4D2() {
             </div>
 
             {/* Submit button */}
-            <div
-             
-              className="buttonGroup mt-6"
-            >
+            <div className="buttonGroup mt-6">
               <button
                 className="btn btn-success px-4 py-2"
                 onClick={handleSubmit}

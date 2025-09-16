@@ -7,10 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-// Images
 import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/UserWelcome.svg";
-// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 
@@ -19,9 +17,8 @@ export default function Login() {
   const [userId, setUserId] = useState("");
   const [popupMessage, setPopupMessage] = useState("");
   const [showPopup, setShowPopup] = useState(false);
-  const [lang, setLang] = useState("ar"); // ✅ language state
+  const [lang, setLang] = useState(localStorage.getItem("language") || "ar");
 
-  // ✅ Language dictionary
   const texts = {
     ar: {
       welcome: "مرحباً بالموظفين الكرام",
@@ -47,19 +44,7 @@ export default function Login() {
     },
   };
 
-  // Example users
-  const users = [
-    { id: "123", name: "Ali", nextRoute: "/map3" },
-    { id: "456", name: "Adham", nextRoute: "/map2" },
-    { id: "789", name: "Mahmoud", nextRoute: "/Home1" },
-  ];
-  const videos = {
-    success: "/Happy.webm",
-    error: "/Upset.webm",
-    warning: "/Upset.webm",
-    neutral: "/Neutral.webm",
-  };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!userId.trim()) {
@@ -68,21 +53,36 @@ export default function Login() {
       return;
     }
 
-    var foundUser = users.find((user) => user.id === userId.trim());
-    const defaultUser = { id: "000", nextRoute: "/Home1" }; // Default user if not found
-
-    if (!foundUser) foundUser = defaultUser; // Always use default user for testing
-    if (foundUser) {
-      setPopupMessage("");
-      setShowPopup(false);
-
-      // ✅ Save language before navigate
-      localStorage.setItem("language", lang);
-
-      navigate(foundUser.nextRoute, {
-        state: { userName: foundUser.name },
+    try {
+      const response = await fetch("http://thekingdomstreasure.com:5000/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ userId }),
       });
-    } else {
+
+      if (!response.ok) throw new Error("Network error");
+
+      const data = await response.json();
+
+      if (data) {
+        // ✅ Save user info
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("language", lang);
+
+        // ✅ Decide next route
+        let nextRoute = "/Home1"; // default if currentStage is null or undefined
+        if (data.currentStage === 2) nextRoute = "/map2";
+        else if (data.currentStage === 3) nextRoute = "/map3";
+        else if (data.currentStage === 4) nextRoute = "/map4";
+        else if (data.currentStage === 5) nextRoute = "/map5";
+
+        navigate(nextRoute, { state: { userId } });
+      } else {
+        setPopupMessage(texts[lang].wrongId);
+        setShowPopup(true);
+      }
+    } catch (error) {
+      console.error("❌ Error:", error);
       setPopupMessage(texts[lang].wrongId);
       setShowPopup(true);
     }
@@ -94,150 +94,67 @@ export default function Login() {
 
   return (
     <div className="firstStep three">
-      {/* Header */}
       <div className="header">
         <img className="logoLanding" src={logo} alt="Logo" />
 
-        {/* Language Switch Button */}
+        {/* Language Switch */}
         <button
           className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
           onClick={() => {
             const newLang = lang === "ar" ? "en" : "ar";
             setLang(newLang);
-            localStorage.setItem("language", newLang); // ✅ نخزن اللغة
+            localStorage.setItem("language", newLang);
           }}
         >
           {texts[lang].switchLang}
         </button>
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
-          fill="none"
-        >
-          <path
-            d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
-            fill="#004F54"
-          />
-          <path
-            d="M23.2544 496H421.854C575.854 221.9 840.534 144.2 840.534 144.2"
-            stroke="#84BD04"
-            strokeWidth="2.1"
-            strokeMiterlimit="10"
-            strokeLinecap="round"
-          />
-        </svg>
-
         <div className="questionUser">
-          <div
-            data-aos="fade-right"
-            data-aos-delay="100"
-            className="dateWelcome"
-          >
+          <div data-aos="fade-right" className="dateWelcome">
             <p className="paraWelcome">{texts[lang].welcome}</p>
           </div>
-          <img
-            data-aos="fade-left"
-            data-aos-delay="100"
-            src={userWelcome}
-            alt="User Welcome"
-          />
-          {/* <video
-              src={videos.neutral}
-              autoPlay
-              muted
-              loop
-              className="w-full rounded mb-4"
-            /> */}
+          <img src={userWelcome} alt="User Welcome" />
         </div>
       </div>
 
-      {/* Body Content */}
+      {/* Body */}
       <div className="fullcontainer">
-        <div className="max-w-7xl mx-auto">
-          <div className="bodycontent">
-            <div className="containerQuestionChoose">
-              <div
-                data-aos="zoom-in-up"
-                data-aos-delay="100"
-                className="question"
-              >
-                <h3>{texts[lang].enterId}</h3>
-                <div className="ContaineritemBox">
-                  <form onSubmit={handleSubmit}>
-                    <div className="inputGroup">
-                      <input
-                        dir={lang === "ar" ? "rtl" : "ltr"}
-                        type="text"
-                        placeholder={texts[lang].placeholder}
-                        name="id"
-                        value={userId}
-                        onChange={(e) => setUserId(e.target.value)}
-                        className="form-control"
-                      />
-                    </div>
-
-                    <div className="buttonGroup mt-3">
-                      <button type="submit">{texts[lang].login}</button>
-                    </div>
-                  </form>
-                </div>
+        <div className="bodycontent">
+          <div className="containerQuestionChoose">
+            <h3>{texts[lang].enterId}</h3>
+            <form onSubmit={handleSubmit}>
+              <div className="inputGroup">
+                <input
+                  dir={lang === "ar" ? "rtl" : "ltr"}
+                  type="text"
+                  placeholder={texts[lang].placeholder}
+                  value={userId}
+                  onChange={(e) => setUserId(e.target.value)}
+                  className="form-control"
+                />
               </div>
-            </div>
+              <div className="buttonGroup mt-3">
+                <button type="submit">{texts[lang].login}</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      {/* Pattern Footer */}
-      <div className="patterFooter">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="858"
-          height="441"
-          viewBox="0 0 858 441"
-          fill="none"
-        >
-          {/* محتوى الـ SVG زي ما هو */}
-          <g clipPath="url(#clip0_789_92342)">
-            <path
-              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
-              fill="#249B98"
-            />
-            {/* باقي ال paths زي الكود الأصلي */}
-          </g>
-          <defs>
-            <clipPath id="clip0_789_92342">
-              <rect width="858" height="441" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
-      </div>
+
+      {/* Footer */}
       <footer>
-        <img
-          className="firstLogoFooter"
-          src={firstLogoFooter}
-          alt="First Logo"
-        />
-        <img
-          className="secoundLogoFooter"
-          src={secoundLogoFooter}
-          alt="Second Logo"
-        />
+        <img src={firstLogoFooter} alt="First Logo" />
+        <img src={secoundLogoFooter} alt="Second Logo" />
       </footer>
-      {/* ✅ Popup */}
+
+      {/* Popup */}
       {showPopup && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 text-center max-w-md">
-            <h2
-              className="text-xl font-bold text-red-600 mb-4"
-              dir={lang === "ar" ? "rtl" : "ltr"}
-            >
+            <h2 className="text-xl font-bold text-red-600 mb-4">
               {texts[lang].alert}
             </h2>
-            <p className="mb-6" dir={lang === "ar" ? "rtl" : "ltr"}>
-              {popupMessage}
-            </p>
+            <p className="mb-6">{popupMessage}</p>
             <button
               className="btn btn-success px-4 py-2"
               onClick={() => setShowPopup(false)}

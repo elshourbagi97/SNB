@@ -8,7 +8,7 @@ import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/UserWelcome.svg";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
 export default function Q1D3() {
   const navigate = useNavigate();
@@ -27,6 +27,9 @@ export default function Q1D3() {
     setLang(newLang);
     localStorage.setItem("language", newLang);
   };
+
+  // ✅ userId من localStorage
+  const userId = localStorage.getItem("userId");
 
   // ✅ الكلمات حسب اللغة
   const continue_words_ar = [
@@ -53,38 +56,57 @@ export default function Q1D3() {
 
   const continue_words = lang === "ar" ? continue_words_ar : continue_words_en;
 
- const handleSubmit = () => {
-  if (!answer.trim()) {
-    setPopupConfig({
-      show: true,
-      type: "warning",
-      message:
-        lang === "ar"
-          ? "من فضلك اكتب إجابة أولاً ⚠️"
-          : "Please enter an answer first ⚠️",
-    });
-    return;
-  }
+  // 🆕 Function to send data to backend
+  const submitToServer = async () => {
+    try {
+      const res = await fetch("http://thekingdomstreasure.com:5000/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: userId,
+          stageNumber: 3, // ✅ Day 3
+        }),
+      });
+      const data = await res.json();
+      console.log("✅ Submitted:", data);
+    } catch (error) {
+      console.error("❌ Submit error:", error);
+    }
+  };
 
-  // ✅ نوحّد الكيس (مثلاً نخلي الاتنين lowerCase)
-  const normalizedAnswer = answer.trim().toLowerCase();
-  const normalizedWords = continue_words.map((w) => w.toLowerCase());
+  const handleSubmit = async () => {
+    if (!answer.trim()) {
+      setPopupConfig({
+        show: true,
+        type: "warning",
+        message:
+          lang === "ar"
+            ? "من فضلك اكتب إجابة أولاً ⚠️"
+            : "Please enter an answer first ⚠️",
+      });
+      return;
+    }
 
-  if (normalizedWords.includes(normalizedAnswer)) {
-    setPopupConfig({
-      show: true,
-      type: "success",
-      message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
-    });
-  } else {
-    setPopupConfig({
-      show: true,
-      type: "error",
-      message: lang === "ar" ? "إجابتك غير صحيحة ❌" : "Wrong Answer ❌",
-    });
-  }
-};
+    const normalizedAnswer = answer.trim().toLowerCase();
+    const normalizedWords = continue_words.map((w) => w.toLowerCase());
 
+    if (normalizedWords.includes(normalizedAnswer)) {
+      setPopupConfig({
+        show: true,
+        type: "success",
+        message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
+      });
+
+      // ✅ Send to backend
+      await submitToServer();
+    } else {
+      setPopupConfig({
+        show: true,
+        type: "error",
+        message: lang === "ar" ? "إجابتك غير صحيحة ❌" : "Wrong Answer ❌",
+      });
+    }
+  };
 
   // 🆕 Enter key listener
   useEffect(() => {
@@ -173,10 +195,12 @@ export default function Q1D3() {
                 <div className="inputGroup">
                   <input
                     type="text"
-                    placeholder={lang === "ar" ? "اكتب اجابتك" : "Enter your answer"}
+                    placeholder={
+                      lang === "ar" ? "اكتب اجابتك" : "Enter your answer"
+                    }
                     value={answer}
                     onChange={(e) => setAnswer(e.target.value)}
-                    style={{textTransform:"capitalize"}}
+                    style={{ textTransform: "capitalize" }}
                   />
                 </div>
               </div>

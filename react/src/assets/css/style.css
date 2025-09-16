@@ -294,8 +294,8 @@ translate:0px -4.5rem ;
     height: 60vh;
 }
 .Q3Content{
-    translate: 0px -6rem;
-    height: 60vh;
+    translate: 0px 50rem;
+    /* height: 60vh; */
 }
 .Q3ArContent{
     translate: 0px -1rem;
