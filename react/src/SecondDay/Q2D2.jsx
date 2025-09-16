@@ -6,7 +6,8 @@ import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import Popup from "../PopUp/PopUp";
@@ -34,15 +35,15 @@ export default function Q2D2() {
   const options =
     lang === "ar"
       ? [
-          "أ - نيوم",
-          "ب - مشروع البحر الأحمر", // ✅ correct
-          "ج - القدية",
-        ]
+        "أ - نيوم",
+        "ب - مشروع البحر الأحمر", // ✅ correct
+        "ج - القدية",
+      ]
       : [
-          "A - NEOM",
-          "B - The Red Sea Project", // ✅ correct
-          "C - Qiddiya",
-        ];
+        "A - NEOM",
+        "B - The Red Sea Project", // ✅ correct
+        "C - Qiddiya",
+      ];
 
   const correctAnswer = 1;
 
@@ -50,8 +51,8 @@ export default function Q2D2() {
     if (answer === null) {
       setPopupMessage(
         lang === "ar"
-          ? "من فضلك اختار الإجابة أولاً ⚠️"
-          : "Please select an answer first ⚠️"
+          ? "من فضلك اختار الإجابة أولاً "
+          : "Please select an answer first "
       );
       setPopupType("warning");
       setShowPopup(true);
@@ -60,7 +61,7 @@ export default function Q2D2() {
 
     if (answer === correctAnswer) {
       setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉"
+        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
       );
       setPopupType("success");
       setWrong(null);
@@ -68,8 +69,8 @@ export default function Q2D2() {
     } else {
       setPopupMessage(
         lang === "ar"
-          ? "إجابتك غير صحيحة، حاول مرة أخري ❌"
-          : "Wrong answer, try again ❌"
+          ? "إجابتك غير صحيحة، حاول مرة أخري "
+          : "Wrong answer, try again "
       );
       setPopupType("error");
       setWrong(answer);
@@ -150,71 +151,72 @@ export default function Q2D2() {
       </div>
 
       {/* Body */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bodycontent">
-          <div
-            className="containerQuestionChoose Q1D2"
-            style={{ background: "#46417e" }}
-          >
+      <div className="fullcontainer">
+        <div className="max-w-4xl mx-auto">
+          <div className="bodycontent">
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="question Q1"
+              className="containerQuestionChoose Q1D2"
+              style={{ background: "#46417e" }}
             >
-              <h3>
-                {lang === "ar"
-                  ? "ما المشروع السياحي الضخم ضمن رؤية 2030 الذي يقام علي جزر البحر الأحمر ؟"
-                  : "Which major tourism project under Vision 2030 is being developed on the Red Sea islands ?"}
-              </h3>
+              <div
+                data-aos="zoom-in-up"
+                data-aos-delay="300"
+                className="question Q1"
+              >
+                <h3>
+                  {lang === "ar"
+                    ? "ما المشروع السياحي الضخم ضمن رؤية 2030 الذي يقام علي جزر البحر الأحمر ؟"
+                    : "Which major tourism project under Vision 2030 is being developed on the Red Sea islands ?"}
+                </h3>
 
-              <div className="ContaineritemBox">
-                {options.map((opt, index) => (
-                  <div
-                    key={index}
-                    onClick={() => {
-                      setAnswer(index);
-                      setWrong(null);
-                    }}
-                    className={`itemBox cursor-pointer ${
-                      answer === index ? "border-2 border-green-600" : ""
-                    } ${wrong === index ? " wrong" : ""}`}
-                  >
-                    <p>{opt}</p>
-                  </div>
-                ))}
+                <div className="ContaineritemBox">
+                  {options.map((opt, index) => (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setAnswer(index);
+                        setWrong(null);
+                      }}
+                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
+                        } ${wrong === index ? " wrong" : ""}`}
+                    >
+                      <p>{opt}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Submit button */}
+              <div
+
+                className="buttonGroup mt-6"
+              >
+                <button
+                  className="btn btn-success px-4 py-2 btn-Q1"
+                  onClick={handleSubmit}
+                >
+                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div
-            
-              className="buttonGroup mt-6"
-            >
-              <button
-                className="btn btn-success px-4 py-2 btn-Q1"
-                onClick={handleSubmit}
-              >
-                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-              </button>
-            </div>
-          </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
+          </div>
         </div>
       </div>
-
+      {/* Footer */}
+      <footer className="flex justify-center gap-6 mt-6">
+        <img
+          className="firstLogoFooter"
+          src={firstLogoFooter}
+          alt="First Footer Logo"
+        />
+        <img
+          className="secoundLogoFooter"
+          src={secoundLogoFooter}
+          alt="Second Footer Logo"
+        />
+      </footer>
       {/* ✅ Popup Component */}
       <Popup
         show={showPopup}
@@ -222,8 +224,8 @@ export default function Q2D2() {
           popupType === "warning"
             ? "warning"
             : popupType === "error"
-            ? "error"
-            : "success"
+              ? "error"
+              : "success"
         }
         onClose={() => setShowPopup(false)}
         onNext={() => navigate("/question3/Day2")}

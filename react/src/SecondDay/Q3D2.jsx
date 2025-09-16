@@ -5,7 +5,8 @@ import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import Popup from "../PopUp/PopUp";
@@ -33,15 +34,15 @@ export default function Q3D2() {
   const options =
     lang === "ar"
       ? [
-          "أ - يعتبر أكبر مجمع صناعي عائم في العالم و يقع شمال غرب السعودية .", // ✅ correct
-          "ب - هو مدينة سياحية جبلية مخصصة للرياضات الشتوية .",
-          "ج - جزيرة فاخرة في البحر الأحمر تابعة لمشروع نيوم .",
-        ]
+        "أ - يعتبر أكبر مجمع صناعي عائم في العالم و يقع شمال غرب السعودية .", // ✅ correct
+        "ب - هو مدينة سياحية جبلية مخصصة للرياضات الشتوية .",
+        "ج - جزيرة فاخرة في البحر الأحمر تابعة لمشروع نيوم .",
+      ]
       : [
-          "A - It is the world’s largest floating industrial complex, located in northwest Saudi Arabia", // ✅ correct
-          "B - A mountain tourist city dedicated to winter sports",
-          "C - A luxury island in the Red Sea as part of NEOM",
-        ];
+        "A - It is the world’s largest floating industrial complex, located in northwest Saudi Arabia", // ✅ correct
+        "B - A mountain tourist city dedicated to winter sports",
+        "C - A luxury island in the Red Sea as part of NEOM",
+      ];
 
   const correctAnswer = 0;
 
@@ -49,8 +50,8 @@ export default function Q3D2() {
     if (answer === null) {
       setPopupMessage(
         lang === "ar"
-          ? "من فضلك اختار الإجابة أولاً ⚠️"
-          : "Please select an answer first ⚠️"
+          ? "من فضلك اختار الإجابة أولاً "
+          : "Please select an answer first "
       );
       setPopupType("warning");
       setShowPopup(true);
@@ -59,7 +60,7 @@ export default function Q3D2() {
 
     if (answer === correctAnswer) {
       setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉"
+        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
       );
       setPopupType("success");
       setWrong(null);
@@ -67,8 +68,8 @@ export default function Q3D2() {
     } else {
       setPopupMessage(
         lang === "ar"
-          ? "إجابتك غير صحيحة، حاول مرة أخري ❌"
-          : "Wrong answer, try again ❌"
+          ? "إجابتك غير صحيحة، حاول مرة أخري "
+          : "Wrong answer, try again "
       );
       setPopupType("error");
       setWrong(answer);
@@ -100,11 +101,11 @@ export default function Q3D2() {
         <button
           className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
           onClick={toggleLang}
-          dir={lang==="ar"?"rtl":"ltr"}
+          dir={lang === "ar" ? "rtl" : "ltr"}
         >
           {lang === "ar" ? "English" : "العربية"}
         </button>
-        <p className="numberQuestion" dir={lang==="en"?"ltr":"rtl"}>
+        <p className="numberQuestion" dir={lang === "en" ? "ltr" : "rtl"}>
           {lang === "ar" ? "السؤال الثالث" : "Question 3"}
         </p>
 
@@ -134,7 +135,7 @@ export default function Q3D2() {
             data-aos-delay="100"
             className="dateWelcome"
           >
-            <p dir={lang==="ar"?"rtl":"ltr"}>
+            <p dir={lang === "ar" ? "rtl" : "ltr"}>
               {lang === "ar"
                 ? " رهيب ! أمامك الأن السؤال الثالث"
                 : "Awesome! Now here’s question three."}
@@ -150,73 +151,75 @@ export default function Q3D2() {
       </div>
 
       {/* Body */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bodycontent">
-          <div
-            className="containerQuestionChoose Q3D2"
-            style={{ background: "#46417e" }}
-          >
+      <div className="fullcontainer">
+        <div className="max-w-4xl mx-auto">
+          <div className="bodycontent">
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="question Q3"
-              dir={lang==="ar"?"rtl":"ltr"}
+              className="containerQuestionChoose Q3D2"
+              style={{ background: "#46417e" }}
             >
-              <h3>
-                {lang === "ar"
-                  ? "أي من العبارات التالية صحيحة عن مشروع أوكساغون ضمن نيوم (Oxagon) ؟"
-                  : "Which of the following statements is true about Oxagon (part of NEOM) ?"}
-              </h3>
+              <div
+                data-aos="zoom-in-up"
+                data-aos-delay="300"
+                className="question Q3"
+                dir={lang === "ar" ? "rtl" : "ltr"}
+              >
+                <h3>
+                  {lang === "ar"
+                    ? "أي من العبارات التالية صحيحة عن مشروع أوكساغون ضمن نيوم (Oxagon) ؟"
+                    : "Which of the following statements is true about Oxagon (part of NEOM) ?"}
+                </h3>
 
-              <div className="ContaineritemBox">
-                {options.map((opt, index) => (
-                  <div
-                    key={index}
-                    onClick={() => {
-                      setAnswer(index);
-                      setWrong(null);
-                    }}
-                    className={`itemBox cursor-pointer ${
-                      answer === index ? "border-2 border-green-600" : ""
-                    } ${wrong === index ? " wrong" : ""}`}
-                  >
-                    <p dir={lang==="ar"?"rtl":"ltr"}>{opt}</p>
-                  </div>
-                ))}
+                <div className="ContaineritemBox">
+                  {options.map((opt, index) => (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setAnswer(index);
+                        setWrong(null);
+                      }}
+                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
+                        } ${wrong === index ? " wrong" : ""}`}
+                    >
+                      <p dir={lang === "ar" ? "rtl" : "ltr"}>{opt}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Submit button */}
+              <div
+
+                className="buttonGroup mt-6 btnQ3"
+              >
+                <button
+                  className="btn btn-success px-4 py-2 "
+                  onClick={handleSubmit}
+                  dir={lang === "ar" ? "rtl" : "ltr"}
+                >
+                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div
-              
-              className="buttonGroup mt-6 btnQ3"
-            >
-              <button
-                className="btn btn-success px-4 py-2 "
-                onClick={handleSubmit}
-                dir={lang==="ar"?"rtl":"ltr"}
-              >
-                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-              </button>
-            </div>
-          </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
+          </div>
         </div>
       </div>
 
+      {/* Footer */}
+      <footer className="flex justify-center gap-6 mt-6">
+        <img
+          className="firstLogoFooter"
+          src={firstLogoFooter}
+          alt="First Footer Logo"
+        />
+        <img
+          className="secoundLogoFooter"
+          src={secoundLogoFooter}
+          alt="Second Footer Logo"
+        />
+      </footer>
       {/* ✅ Popup Component */}
       <Popup
         show={showPopup}
@@ -224,8 +227,8 @@ export default function Q3D2() {
           popupType === "warning"
             ? "warning"
             : popupType === "error"
-            ? "error"
-            : "success"
+              ? "error"
+              : "success"
         }
         onClose={() => setShowPopup(false)}
         onNext={() => navigate("/question4/Day2")}

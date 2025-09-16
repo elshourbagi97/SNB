@@ -5,129 +5,47 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <!-- Correct stylesheet link -->
     <link rel="stylesheet" href="/src/assets/css/style.css" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>SNB Bank</title>
-    <!-- <style>
-    .max-w-7xl.mx-auto,
-    .max-w-4xl.mx-auto,
-    .max-w-7xl.mx-auto.mt-20,
-    .max-w-7xl.mx-auto.mt-28 {
-      min-height: 100vh;
-      background-color: #008787;
-    }
-
-    .fullcontainer {
-      min-height: auto;
-    }
-
-    .containerQuestionChoose {
-      height: 100% !important;
-    }
-
-    .firstStep.shiledpage {
-      overflow-y: auto;
-    }
-.firstStep footer {
-
-        position: relative !important;
-      }
-
-    /* On desktop only */
-    @media (min-width: 760px) {
-      body {
-        margin: 0;
-        background: #f5f5f5;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        min-height: 100vh;
-      }
-
-      /* Force app into mobile frame on ALL screens */
-      .mobileframe {
-        width: 100%;
-        max-width: 430px;
-        /* phone width */
-        min-height: 100vh;
-        background: #fff;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-        overflow-y: auto;
-        /* allow scroll if content is taller */
-      }
-
-      /* footer inside each page */
-      .footer {
-        padding: 15px;
-        background: #f1f1f1;
-        text-align: center;
-      }
-
-      .firstStep {
-        overflow-y: auto;
-      }
-
-      .firstStep footer {
-
-        position: relative !important;
-      }
-
-      .max-w-7xl.mx-auto,
-      .max-w-4xl.mx-auto,
-      .max-w-7xl.mx-auto.mt-20,
-      .max-w-7xl.mx-auto.mt-28 {
-        min-height: 100vh;
-        background-color: #008787;
-      }
-
-      .fullcontainer {
-        min-height: fit-content;
-      }
-
-      .containerQuestionChoose {
-        min-height: 100vh !important;
-      }
-
-      /* .Q3ArContent,
-.Q1Content{
-  min-height: 100vh;
-} */
-    }
-  </style> -->
     <style>
+      /* Remove forced full-screen from inner containers */
+      
       .max-w-7xl.mx-auto,
       .max-w-4xl.mx-auto,
       .max-w-7xl.mx-auto.mt-20,
       .max-w-7xl.mx-auto.mt-28 {
-        min-height: 100vh;
-        /* background-color: #008787; */
+        min-height: auto; /* let content define height */
       }
 
       .fullcontainer {
-        min-height: auto; /* safer than fit-content */
+        min-height: auto;
+        padding-bottom: 6rem;
+        margin-top: 5%; /* adjust as needed */
       }
 
       .containerQuestionChoose {
-        height: 100% !important;
+        height: auto !important; /* no forced 100% */
       }
 
+      /* Page wrapper */
       .firstStep {
         display: flex;
         flex-direction: column;
-        min-height: 100vh;
+        min-height: 100vh; /* page fills screen */
         overflow-y: auto;
       }
 
       .firstStep footer {
-        margin-top: auto;
+        margin-top: auto; /* footer stays at bottom */
         position: relative !important;
       }
+.desktop-message {
+  display: none;
+}
 
       /* On desktop only */
-      @media (min-width: 760px) {
+      @media (min-width: 1024px) {
         body {
           margin: 0;
           background: #f5f5f5;
@@ -137,7 +55,7 @@
           min-height: 100vh;
         }
 
-        /* Force app into mobile frame on ALL screens */
+        /* Force app into mobile frame on ALL wide screens */
         .mobileframe {
           width: 100%;
           max-width: 430px; /* phone width */
@@ -146,6 +64,8 @@
           box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
           overflow-y: auto;
           border-radius: 20px;
+          display: flex;
+          flex-direction: column;
         }
 
         /* footer inside each page */
@@ -156,14 +76,18 @@
         }
 
         .containerQuestionChoose {
-          min-height: 100vh !important;
+          min-height: auto !important; /* prevent forced height */
         }
       }
     </style>
   </head>
 
   <body>
-    <div id="root" class="mobileframe"></div>
+    <div id="root" class="mobileframe">
+      <p class="desktop-message">For the best experience, please open this on your phone 📱</p>
+
+    </div>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

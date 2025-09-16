@@ -5,7 +5,8 @@ import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import Popup from "../Popup/Popup";
@@ -20,7 +21,7 @@ export default function Q3D1() {
     message: "",
   });
 
-  // ✅ اللغة من localStorage
+  //  اللغة من localStorage
   const [lang, setLang] = useState(localStorage.getItem("language") || "ar");
 
   const toggleLang = () => {
@@ -29,22 +30,22 @@ export default function Q3D1() {
     localStorage.setItem("language", newLang);
   };
 
-  // ✅ userId من localStorage
+  //  userId من localStorage
   const userId = localStorage.getItem("userId");
 
   // خيارات السؤال
   const options =
     lang === "ar"
       ? [
-          " GDP - أ - الناتج المحلي الاجمالي ", // ✅ الإجابة الصحيحة
-          "CPI - ب - مؤشر أسعار المستهلك ",
-          "DJI - ج - مؤشر داوجونز ",
-        ]
+        " GDP - أ - الناتج المحلي الاجمالي ", //  الإجابة الصحيحة
+        "CPI - ب - مؤشر أسعار المستهلك ",
+        "DJI - ج - مؤشر داوجونز ",
+      ]
       : [
-          "A - Gross Domestic Product - GDP", // ✅ correct
-          "B - Consumer Price Index - CPI",
-          "C - Dow Jones Index - DJI",
-        ];
+        "A - Gross Domestic Product - GDP", //  correct
+        "B - Consumer Price Index - CPI",
+        "C - Dow Jones Index - DJI",
+      ];
 
   const correctAnswer = 0;
 
@@ -56,13 +57,13 @@ export default function Q3D1() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           userId: userId,
-          stageNumber: 1, // ✅ Day 1
+          stageNumber: 1, //  Day 1
         }),
       });
       const data = await res.json();
-      console.log("✅ Submitted:", data);
+      console.log(" Submitted:", data);
     } catch (error) {
-      console.error("❌ Submit error:", error);
+      console.error(" Submit error:", error);
     }
   };
 
@@ -73,8 +74,8 @@ export default function Q3D1() {
         type: "warning",
         message:
           lang === "ar"
-            ? "من فضلك اختار الإجابة أولاً ⚠️"
-            : "Please select an answer first ⚠️",
+            ? "من فضلك اختار الإجابة أولاً "
+            : "Please select an answer first ",
       });
       return;
     }
@@ -84,10 +85,10 @@ export default function Q3D1() {
       setPopupConfig({
         show: true,
         type: "success",
-        message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
+        message: lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! ",
       });
 
-      // ✅ Send to backend
+      //  Send to backend
       await submitToServer();
     } else {
       setWrong(answer);
@@ -96,8 +97,8 @@ export default function Q3D1() {
         type: "error",
         message:
           lang === "ar"
-            ? "إجابتك غير صحيحة، حاول مرة أخرى ❌"
-            : "Wrong answer, try again ❌",
+            ? "إجابتك غير صحيحة، حاول مرة أخرى "
+            : "Wrong answer, try again ",
       });
     }
   };
@@ -175,74 +176,73 @@ export default function Q3D1() {
       </div>
 
       {/* Body */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bodycontent">
-          <div
-            className={`containerQuestionChoose ${
-              lang === "ar" ? "Q3ArContent" : "Q3Content"
-            }`}
-          >
+      <div className="fullcontainer">
+        <div className="max-w-4xl mx-auto">
+          <div className="bodycontent">
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="question Q3"
+              className={`containerQuestionChoose ${lang === "ar" ? "Q3ArContent" : "Q3Content"
+                }`}
             >
-              <h3>
-                {lang === "ar"
-                  ? "أنا المؤشر اللي يختصر قوة الاقتصاد... من أكون ؟"
-                  : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
-              </h3>
+              <div
+                data-aos="zoom-in-up"
+                data-aos-delay="300"
+                className="question Q3"
+              >
+                <h3>
+                  {lang === "ar"
+                    ? "أنا المؤشر اللي يختصر قوة الاقتصاد... من أكون ؟"
+                    : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
+                </h3>
 
-              <div className="ContaineritemBox">
-                {options.map((opt, index) => (
-                  <div
-                    key={index}
-                    onClick={() => {
-                      setAnswer(index);
-                      setWrong(null);
-                    }}
-                    className={`itemBox cursor-pointer ${
-                      answer === index ? "border-2 border-green-600" : ""
-                    } ${wrong === index ? " wrong" : ""}`}
-                  >
-                    <p>{opt}</p>
-                  </div>
-                ))}
+                <div className="ContaineritemBox">
+                  {options.map((opt, index) => (
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setAnswer(index);
+                        setWrong(null);
+                      }}
+                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
+                        } ${wrong === index ? " wrong" : ""}`}
+                    >
+                      <p>{opt}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Submit button */}
+              <div
+                className={`buttonGroup mt-6 ${lang === "ar" ? "btn-Ar-3" : "btn-3"
+                  }`}
+              >
+                <button
+                  className="btn btn-success px-4 py-2"
+                  onClick={handleSubmit}
+                >
+                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div
-              className={`buttonGroup mt-6 ${
-                lang === "ar" ? "btn-Ar-3" : "btn-3"
-              }`}
-            >
-              <button
-                className="btn btn-success px-4 py-2"
-                onClick={handleSubmit}
-              >
-                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-              </button>
-            </div>
-          </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
+          </div>
         </div>
       </div>
-
-      {/* ✅ Popup Component */}
+      {/* Footer */}
+      <footer className="flex justify-center gap-6 mt-6">
+        <img
+          className="firstLogoFooter"
+          src={firstLogoFooter}
+          alt="First Footer Logo"
+        />
+        <img
+          className="secoundLogoFooter"
+          src={secoundLogoFooter}
+          alt="Second Footer Logo"
+        />
+      </footer>
+      {/*  Popup Component */}
       <Popup
         show={popupConfig.show}
         type={popupConfig.type}

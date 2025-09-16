@@ -1,0 +1,37 @@
+CREATE TABLE users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT UNIQUE,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE stages (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  stage_number INTEGER NOT NULL UNIQUE,
+  name TEXT,
+  description TEXT,
+  start_date DATETIME NOT NULL
+);
+
+INSERT INTO stages (stage_number, name, description, start_date) VALUES
+(1, 'Stage 1', 'First quiz', '2025-09-10 00:00:00'),
+(2, 'Stage 2', 'Second quiz', '2025-09-12 00:00:00'),
+(3, 'Stage 3', 'Third quiz', '2025-09-14 00:00:00');
+
+
+
+CREATE TABLE user_stages (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT NOT NULL,
+  stage_number INTEGER NOT NULL,
+  completed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(user_id, stage_number)
+);
+
+CREATE TABLE views (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id TEXT,
+  device_id TEXT,
+  ip_address TEXT,
+  user_agent TEXT,
+  viewed_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

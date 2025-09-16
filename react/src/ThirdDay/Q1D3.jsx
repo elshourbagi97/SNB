@@ -5,7 +5,9 @@ import "aos/dist/aos.css";
 
 // Images
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
+
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import Popup from "../Popup/Popup";
@@ -70,7 +72,7 @@ export default function Q1D3() {
       const data = await res.json();
       console.log("✅ Submitted:", data);
     } catch (error) {
-      console.error("❌ Submit error:", error);
+      console.error(" Submit error:", error);
     }
   };
 
@@ -81,8 +83,8 @@ export default function Q1D3() {
         type: "warning",
         message:
           lang === "ar"
-            ? "من فضلك اكتب إجابة أولاً ⚠️"
-            : "Please enter an answer first ⚠️",
+            ? "من فضلك اكتب إجابة أولاً "
+            : "Please enter an answer first ",
       });
       return;
     }
@@ -94,7 +96,7 @@ export default function Q1D3() {
       setPopupConfig({
         show: true,
         type: "success",
-        message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
+        message: lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! ",
       });
 
       // ✅ Send to backend
@@ -103,7 +105,7 @@ export default function Q1D3() {
       setPopupConfig({
         show: true,
         type: "error",
-        message: lang === "ar" ? "إجابتك غير صحيحة ❌" : "Wrong Answer ❌",
+        message: lang === "ar" ? "إجابتك غير صحيحة " : "Wrong Answer ",
       });
     }
   };
@@ -175,65 +177,67 @@ export default function Q1D3() {
       </div>
 
       {/* Body */}
-      <div className="max-w-7xl mx-auto">
-        <div className="bodycontent">
-          <div className="containerQuestionChoose">
-            {/* ✅ عرض الكلمات حسب اللغة */}
-            <div className="continue_words">
-              {continue_words.map((word, idx) => (
-                <p key={idx}>{word}</p>
-              ))}
-            </div>
+      <div className="fullcontainer">
+        <div className="max-w-7xl mx-auto">
+          <div className="bodycontent">
+            <div className="containerQuestionChoose">
+              {/* ✅ عرض الكلمات حسب اللغة */}
+              <div className="continue_words">
+                {continue_words.map((word, idx) => (
+                  <p key={idx}>{word}</p>
+                ))}
+              </div>
 
-            <div className="question" dir={lang === "ar" ? "rtl" : "ltr"}>
-              <h3>
-                {lang === "ar"
-                  ? "اختر كلمة من الشاشات من حولك"
-                  : "Pick a word from the screens around you"}
-              </h3>
-              <div className="ContaineritemBox">
-                <div className="inputGroup">
-                  <input
-                    type="text"
-                    placeholder={
-                      lang === "ar" ? "اكتب اجابتك" : "Enter your answer"
-                    }
-                    value={answer}
-                    onChange={(e) => setAnswer(e.target.value)}
-                    style={{ textTransform: "capitalize" }}
-                  />
+              <div className="question" dir={lang === "ar" ? "rtl" : "ltr"}>
+                <h3>
+                  {lang === "ar"
+                    ? "اختر كلمة من الشاشات من حولك"
+                    : "Pick a word from the screens around you"}
+                </h3>
+                <div className="ContaineritemBox">
+                  <div className="inputGroup">
+                    <input
+                      type="text"
+                      placeholder={
+                        lang === "ar" ? "اكتب اجابتك" : "Enter your answer"
+                      }
+                      value={answer}
+                      onChange={(e) => setAnswer(e.target.value)}
+                      style={{ textTransform: "capitalize" }}
+                    />
+                  </div>
                 </div>
+              </div>
+
+              {/* Submit button */}
+              <div className="buttonGroup mt-6">
+                <button
+                  className="btn btn-success px-4 py-2"
+                  onClick={handleSubmit}
+                  dir={lang === "ar" ? "rtl" : "ltr"}
+                >
+                  {lang === "ar" ? "ارسال الاجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div className="buttonGroup mt-6">
-              <button
-                className="btn btn-success px-4 py-2"
-                onClick={handleSubmit}
-                dir={lang === "ar" ? "rtl" : "ltr"}
-              >
-                {lang === "ar" ? "ارسال الاجابة" : "Submit Answer"}
-              </button>
-            </div>
-          </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
+          </div>
         </div>
       </div>
-
+      {/* Footer */}
+      <footer className="flex justify-center gap-6 mt-6">
+        <img
+          className="firstLogoFooter"
+          src={firstLogoFooter}
+          alt="First Footer Logo"
+        />
+        <img
+          className="secoundLogoFooter"
+          src={secoundLogoFooter}
+          alt="Second Footer Logo"
+        />
+      </footer>
       {/* ✅ Popup */}
       <Popup
         show={popupConfig.show}

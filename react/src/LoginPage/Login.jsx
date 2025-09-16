@@ -8,7 +8,9 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 
@@ -26,8 +28,8 @@ export default function Login() {
       placeholder: "رقم التعرف",
       login: "تسجيل الدخول",
       alert: "تنبيه",
-      emptyId: "من فضلك أدخل رقم التعرف الخاص بك ⚠️",
-      wrongId: "رقم التعرف غير صحيح ❌",
+      emptyId: "من فضلك أدخل رقم التعرف الخاص بك ",
+      wrongId: "رقم التعرف غير صحيح ",
       back: "رجوع",
       switchLang: "English",
     },
@@ -37,8 +39,8 @@ export default function Login() {
       placeholder: "Identification Number",
       login: "Login",
       alert: "Alert",
-      emptyId: "Please enter your ID ⚠️",
-      wrongId: "Invalid ID ❌",
+      emptyId: "Please enter your ID ",
+      wrongId: "Invalid ID ",
       back: "Back",
       switchLang: "العربية",
     },
@@ -82,7 +84,7 @@ export default function Login() {
         setShowPopup(true);
       }
     } catch (error) {
-      console.error("❌ Error:", error);
+      console.error(" Error:", error);
       setPopupMessage(texts[lang].wrongId);
       setShowPopup(true);
     }
@@ -93,7 +95,10 @@ export default function Login() {
   }, []);
 
   return (
-    <div className="firstStep three">
+    
+    <div className="firstStep one">
+      
+
       <div className="header">
         <img className="logoLanding" src={logo} alt="Logo" />
 
@@ -109,17 +114,18 @@ export default function Login() {
           {texts[lang].switchLang}
         </button>
 
-        <div className="questionUser">
-          <div data-aos="fade-right" className="dateWelcome">
-            <p className="paraWelcome">{texts[lang].welcome}</p>
-          </div>
-          <img src={userWelcome} alt="User Welcome" />
-        </div>
+      
       </div>
 
       {/* Body */}
       <div className="fullcontainer">
-        <div className="bodycontent">
+        <div className="bodycontent max-w-7xl mx-auto mt-20">
+            <div className="questionUser">
+          <div data-aos="fade-right" className="dateWelcome">
+            <p className="paraWelcome">{texts[lang].welcome}</p>
+          </div>
+          <img src={userWelcome} alt="User Welcome" />
+        </div>  
           <div className="containerQuestionChoose">
             <h3>{texts[lang].enterId}</h3>
             <form onSubmit={handleSubmit}>
@@ -140,12 +146,44 @@ export default function Login() {
           </div>
         </div>
       </div>
+ {/* Pattern Footer */}
+      <div className="patterFooter">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="858"
+          height="441"
+          viewBox="0 0 858 441"
+          fill="none"
+        >
+          {/* محتوى الـ SVG زي ما هو */}
+          <g clipPath="url(#clip0_789_92342)">
+            <path
+              d="M243.719 200.49H323.879L283.799 240.63L243.719 200.49Z"
+              fill="#249B98"
+            />
+            {/* باقي ال paths زي الكود الأصلي */}
+          </g>
+          <defs>
+            <clipPath id="clip0_789_92342">
+              <rect width="858" height="441" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
+      </div>
 
       {/* Footer */}
-      <footer>
-        <img src={firstLogoFooter} alt="First Logo" />
-        <img src={secoundLogoFooter} alt="Second Logo" />
-      </footer>
+           <footer>
+               <img
+                 className="firstLogoFooter"
+                 src={firstLogoFooter}
+                 alt="First Logo"
+               />
+               <img
+                 className="secoundLogoFooter"
+                 src={secoundLogoFooter}
+                 alt="Second Logo"
+               />
+             </footer>
 
       {/* Popup */}
       {showPopup && (

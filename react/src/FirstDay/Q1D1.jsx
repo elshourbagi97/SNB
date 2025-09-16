@@ -5,8 +5,8 @@ import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
- import userWelcome from "../assets/img/UserWelcome.svg";
-// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
+//  import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
@@ -51,8 +51,8 @@ export default function Q1D1() {
     if (answer === null) {
       setPopupMessage(
         lang === "ar"
-          ? "من فضلك اختار الإجابة أولاً ⚠️"
-          : "Please select an answer first ⚠️"
+          ? "من فضلك اختار الإجابة أولاً "
+          : "Please select an answer first "
       );
       setPopupType("warning");
       setShowPopup(true);
@@ -61,7 +61,7 @@ export default function Q1D1() {
 
     if (answer === correctAnswer) {
       setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉"
+        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
       );
       setPopupType("success");
       setWrong(null);
@@ -69,8 +69,8 @@ export default function Q1D1() {
     } else {
       setPopupMessage(
         lang === "ar"
-          ? "إجابتك غير صحيحة، حاول مرة أخري ❌"
-          : "Wrong answer, try again ❌"
+          ? "إجابتك غير صحيحة، حاول مرة أخري "
+          : "Wrong answer, try again "
       );
       setPopupType("error");
       setWrong(answer);

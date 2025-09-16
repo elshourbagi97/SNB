@@ -5,8 +5,8 @@ import "aos/dist/aos.css";
 
 // صور
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
-// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
@@ -37,8 +37,8 @@ export default function Q2D1() {
     if (!answer.trim()) {
       setPopupMessage(
         lang === "ar"
-          ? "من فضلك اكتب الإجابة أولاً ⚠️"
-          : "Please enter your answer first ⚠️"
+          ? "من فضلك اكتب الإجابة أولاً "
+          : "Please enter your answer first "
       );
       setPopupType("warning");
       setShowPopup(true);
@@ -47,15 +47,15 @@ export default function Q2D1() {
 
     if (answer.trim() === correctAnswer) {
       setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉"
+        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
       );
       setPopupType("success");
       setShowPopup(true);
     } else {
       setPopupMessage(
         lang === "ar"
-          ? "إجابتك غير صحيحة، حاول مرة أخري ❌"
-          : "Wrong answer, try again ❌"
+          ? "إجابتك غير صحيحة، حاول مرة أخري "
+          : "Wrong answer, try again "
       );
       setPopupType("error");
       setShowPopup(true);
@@ -114,7 +114,14 @@ export default function Q2D1() {
           />
         </svg>
 
-        <div className="questionUser">
+   
+      </div>
+
+      {/* Body */}
+      <div className="fullcontainer">
+        <div className="max-w-7xl mx-auto">
+          <div className="bodycontent">
+                 <div className="questionUser">
           <div
             data-aos="fade-right"
             data-aos-delay="100"
@@ -133,12 +140,6 @@ export default function Q2D1() {
             alt="User Welcome"
           />
         </div>
-      </div>
-
-      {/* Body */}
-      <div className="fullcontainer">
-        <div className="max-w-7xl mx-auto">
-          <div className="bodycontent">
             <div className="containerQuestionChoose">
               <div
                 data-aos="zoom-in-up"
@@ -171,8 +172,8 @@ export default function Q2D1() {
 
               {/* Submit button */}
               <div
-                data-aos="zoom-in-up"
-                data-aos-delay="300"
+                // data-aos="zoom-in-up"
+                // data-aos-delay="300"
                 className="buttonGroup mt-4"
               >
                 <button
@@ -184,7 +185,11 @@ export default function Q2D1() {
               </div>
             </div>
 
-            {/* Footer */}
+           
+          </div>
+        </div>
+      </div>
+       {/* Footer */}
             <footer className="flex justify-center gap-6 mt-6">
               <img
                 className="firstLogoFooter"
@@ -197,9 +202,6 @@ export default function Q2D1() {
                 alt="Second Footer Logo"
               />
             </footer>
-          </div>
-        </div>
-      </div>
       {/* ✅ Popup Component */}
       <Popup
         show={showPopup}

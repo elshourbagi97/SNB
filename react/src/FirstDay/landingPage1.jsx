@@ -7,8 +7,8 @@ import "aos/dist/aos.css";
 
 // Images
 import logo from "../assets/img/logo.svg";
- import userWelcome from "../assets/img/UserWelcome.svg";
-// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
+//  import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 

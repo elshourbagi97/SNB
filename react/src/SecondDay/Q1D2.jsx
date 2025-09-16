@@ -4,7 +4,8 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 // Images
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 
@@ -38,8 +39,8 @@ export default function Q1D2() {
     if (selected === null) {
       setPopupMessage(
         lang === "ar"
-          ? "من فضلك اختار الإجابة أولاً ⚠️"
-          : "Please select an answer first ⚠️"
+          ? "من فضلك اختار الإجابة أولاً "
+          : "Please select an answer first "
       );
       setPopupType("warning");
       setShowPopup(true);
@@ -49,7 +50,7 @@ export default function Q1D2() {
     if (selected === correctAnswer) {
       setWrong(null);
       setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉"
+        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
       );
       setPopupType("success");
       setShowPopup(true);
@@ -57,8 +58,8 @@ export default function Q1D2() {
       setWrong(selected);
       setPopupMessage(
         lang === "ar"
-          ? "إجابتك غير صحيحة، حاول مرة أخري ❌"
-          : "Wrong answer, try again ❌"
+          ? "إجابتك غير صحيحة، حاول مرة أخري "
+          : "Wrong answer, try again "
       );
       setPopupType("error");
       setShowPopup(true);
@@ -135,74 +136,76 @@ export default function Q1D2() {
       </div>
 
       {/* Body */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bodycontent">
-          <div
-            className="containerQuestionChoose Q1D2"
-            style={{ background: "#46417e" }}
-          >
+      <div className="fullcontainer">
+        <div className="max-w-4xl mx-auto">
+          <div className="bodycontent">
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="question Q1"
+              className="containerQuestionChoose Q1D2"
+              style={{ background: "#46417e" }}
             >
-              <h3 dir={lang === "ar" ? "rtl" : "ltr"}>
-                {lang === "ar"
-                  ? "أنا مركز الثقل المالي في المملكة من أكون ؟"
-                  : "I’m the financial center of gravity in the Kingdom … Who am I ?"}
-              </h3>
+              <div
+                data-aos="zoom-in-up"
+                data-aos-delay="300"
+                className="question Q1"
+              >
+                <h3 dir={lang === "ar" ? "rtl" : "ltr"}>
+                  {lang === "ar"
+                    ? "أنا مركز الثقل المالي في المملكة من أكون ؟"
+                    : "I’m the financial center of gravity in the Kingdom … Who am I ?"}
+                </h3>
 
-              <div className="ContaineritemBox">
-                {options.map((opt, index) => (
-                  <div
-                    key={index}
-                    onClick={() => setSelected(index)}
-                    className={`itemBox cursor-pointer ${
-                      selected === index ? "border-2 border-green-600" : ""
-                    } ${wrong === index ? "wrong" : ""}`}
-                  >
-                    <p
-                      dir={lang === "ar" ? "rtl" : "ltr"}
-                      style={{ paddingBottom: "1px", fontSize: "16px" }}
+                <div className="ContaineritemBox">
+                  {options.map((opt, index) => (
+                    <div
+                      key={index}
+                      onClick={() => setSelected(index)}
+                      className={`itemBox cursor-pointer ${selected === index ? "border-2 border-green-600" : ""
+                        } ${wrong === index ? "wrong" : ""}`}
                     >
-                      {opt}
-                    </p>
-                  </div>
-                ))}
+                      <p
+                        dir={lang === "ar" ? "rtl" : "ltr"}
+                        style={{ paddingBottom: "1px", fontSize: "16px" }}
+                      >
+                        {opt}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Submit button */}
+              <div
+
+                className="buttonGroup mt-6"
+              >
+                <button
+                  className="btn btn-success px-4 py-2 btn-Q1"
+                  onClick={handleSubmit}
+                  dir={lang === "ar" ? "rtl" : "ltr"}
+                >
+                  {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div
-            
-              className="buttonGroup mt-6"
-            >
-              <button
-                className="btn btn-success px-4 py-2 btn-Q1"
-                onClick={handleSubmit}
-                dir={lang === "ar" ? "rtl" : "ltr"}
-              >
-                {lang === "ar" ? "إرسال الإجابة" : "Submit Answer"}
-              </button>
-            </div>
-          </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
+          </div>
         </div>
       </div>
 
+      {/* Footer */}
+      <footer className="flex justify-center gap-6 mt-6">
+        <img
+          className="firstLogoFooter"
+          src={firstLogoFooter}
+          alt="First Footer Logo"
+        />
+        <img
+          className="secoundLogoFooter"
+          src={secoundLogoFooter}
+          alt="Second Footer Logo"
+        />
+      </footer>
       {/* ✅ Popup Component */}
       <Popup
         show={showPopup}

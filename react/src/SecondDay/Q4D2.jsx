@@ -5,7 +5,8 @@ import "aos/dist/aos.css";
 
 // Images
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import Popup from "../Popup/Popup";
@@ -54,7 +55,7 @@ export default function Q4D2() {
       const data = await res.json();
       console.log("✅ Submitted:", data);
     } catch (error) {
-      console.error("❌ Submit error:", error);
+      console.error(" Submit error:", error);
     }
   };
 
@@ -65,8 +66,8 @@ export default function Q4D2() {
         type: "warning",
         message:
           lang === "ar"
-            ? "من فضلك اختار الإجابة أولاً ⚠️"
-            : "Please select an answer first ⚠️",
+            ? "من فضلك اختار الإجابة أولاً "
+            : "Please select an answer first ",
       });
       return;
     }
@@ -76,7 +77,7 @@ export default function Q4D2() {
       setPopupConfig({
         show: true,
         type: "success",
-        message: lang === "ar" ? "إجابتك صحيحة ! 🎉" : "Correct Answer! 🎉",
+        message: lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! ",
       });
 
       // ✅ Send to backend
@@ -88,8 +89,8 @@ export default function Q4D2() {
         type: "error",
         message:
           lang === "ar"
-            ? "إجابتك غير صحيحة، حاول مرة أخرى ❌"
-            : "Wrong answer, try again ❌",
+            ? "إجابتك غير صحيحة، حاول مرة أخرى "
+            : "Wrong answer, try again ",
       });
     }
   };
@@ -172,69 +173,71 @@ export default function Q4D2() {
       </div>
 
       {/* Body */}
-      <div className="max-w-4xl mx-auto">
-        <div className="bodycontent ">
-          <div
-            className="containerQuestionChoose Q3D2 "
-            style={{ background: "#46417e" }}
-          >
+      <div className="fullcontainer">
+        <div className="max-w-4xl mx-auto">
+          <div className="bodycontent ">
             <div
-              data-aos="zoom-in-up"
-              data-aos-delay="300"
-              className="question contentQ4D2"
-              style={{ translate: "0px -20px" }}
-              dir={lang === "ar" ? "rtl" : "ltr"}
+              className="containerQuestionChoose Q3D2 "
+              style={{ background: "#46417e" }}
             >
-              <h3 style={{ lineHeight: "23px" }}>
-                {lang === "ar"
-                  ? "يمتد الممشي البحري الرئيسي في كورنيش جازان الجنوبي بطول كم متر تقريباً ؟"
-                  : "Roughly how many meters long is the main seafront walkway at South Jazan Corniche?"}
-              </h3>
+              <div
+                data-aos="zoom-in-up"
+                data-aos-delay="300"
+                className="question contentQ4D2"
+                style={{ translate: "0px -20px" }}
+                dir={lang === "ar" ? "rtl" : "ltr"}
+              >
+                <h3 style={{ lineHeight: "23px" }}>
+                  {lang === "ar"
+                    ? "يمتد الممشي البحري الرئيسي في كورنيش جازان الجنوبي بطول كم متر تقريباً ؟"
+                    : "Roughly how many meters long is the main seafront walkway at South Jazan Corniche?"}
+                </h3>
 
-              <div className="ContaineritemBox">
-                {options.map((opt, index) => (
-                  <div
-                    key={index}
-                    onClick={() => setAnswer(index)}
-                    className={`itemBox cursor-pointer ${
-                      answer === index ? "border-2 border-green-600" : ""
-                    } ${wrong === index ? "wrong" : ""}`}
-                  >
-                    <p dir={lang === "ar" ? "rtl" : "ltr"}>{opt}</p>
-                  </div>
-                ))}
+                <div className="ContaineritemBox">
+                  {options.map((opt, index) => (
+                    <div
+                      key={index}
+                      onClick={() => setAnswer(index)}
+                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
+                        } ${wrong === index ? "wrong" : ""}`}
+                    >
+                      <p dir={lang === "ar" ? "rtl" : "ltr"}>{opt}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Submit button */}
+              <div className="buttonGroup mt-6">
+                <button
+                  className="btn btn-success px-4 py-2"
+                  onClick={handleSubmit}
+                  style={{ translate: "0px -30px" }}
+                  dir={lang === "ar" ? "rtl" : "ltr"}
+                >
+                  {lang === "ar" ? "ارسال الاجابة" : "Submit Answer"}
+                </button>
               </div>
             </div>
 
-            {/* Submit button */}
-            <div className="buttonGroup mt-6">
-              <button
-                className="btn btn-success px-4 py-2"
-                onClick={handleSubmit}
-                style={{ translate: "0px -30px" }}
-                dir={lang === "ar" ? "rtl" : "ltr"}
-              >
-                {lang === "ar" ? "ارسال الاجابة" : "Submit Answer"}
-              </button>
-            </div>
-          </div>
 
-          {/* Footer */}
-          <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
+          </div>
         </div>
       </div>
 
+      {/* Footer */}
+      <footer className="flex justify-center gap-6 mt-6">
+        <img
+          className="firstLogoFooter"
+          src={firstLogoFooter}
+          alt="First Footer Logo"
+        />
+        <img
+          className="secoundLogoFooter"
+          src={secoundLogoFooter}
+          alt="Second Footer Logo"
+        />
+      </footer>
       {/* ✅ Popup */}
       <Popup
         show={popupConfig.show}

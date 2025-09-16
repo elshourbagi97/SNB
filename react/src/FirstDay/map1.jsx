@@ -6,8 +6,8 @@ import "aos/dist/aos.css";
 
 // Images
 import logo from "../assets/img/logo.svg";
-import userWelcome from "../assets/img/UserWelcome.svg";
-// import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
+// import userWelcome from "../assets/img/UserWelcome.svg";
+import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
@@ -95,7 +95,7 @@ export default function MapPage1() {
           />
         </svg>
       </div>
-      <div className="fullContainer">
+      <div className="fullcontainer">
         <div className="max-w-7xl mx-auto mt-20">
           <div className="bodycontent">
             <svg
@@ -256,8 +256,8 @@ export default function MapPage1() {
             </p>
           </div>
           <div
-            data-aos="zoom-in-up"
-            data-aos-delay="100"
+            // data-aos="zoom-in-up"
+            // data-aos-delay="100"
             className="buttonGroup"
           >
             <button
