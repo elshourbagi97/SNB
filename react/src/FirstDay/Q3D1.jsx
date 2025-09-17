@@ -37,15 +37,15 @@ export default function Q3D1() {
   const options =
     lang === "ar"
       ? [
-        " GDP - أ - الناتج المحلي الاجمالي ", //  الإجابة الصحيحة
-        "CPI - ب - مؤشر أسعار المستهلك ",
-        "DJI - ج - مؤشر داوجونز ",
-      ]
+          " GDP - أ - الناتج المحلي الاجمالي ", //  الإجابة الصحيحة
+          "CPI - ب - مؤشر أسعار المستهلك ",
+          "DJI - ج - مؤشر داوجونز ",
+        ]
       : [
-        "A - Gross Domestic Product - GDP", //  correct
-        "B - Consumer Price Index - CPI",
-        "C - Dow Jones Index - DJI",
-      ];
+          "A - Gross Domestic Product - GDP", //  correct
+          "B - Consumer Price Index - CPI",
+          "C - Dow Jones Index - DJI",
+        ];
 
   const correctAnswer = 0;
 
@@ -85,7 +85,7 @@ export default function Q3D1() {
       setPopupConfig({
         show: true,
         type: "success",
-        message: lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! ",
+        message: lang === "ar" ? "صح عليك هذا هو المؤشر اللي يعبر عن قوة اقتصادنا ... و مشاركتك اليوم قربتك لاكتشاف ثورة الوطن" : "Well done! This indicator reflects the power of our economy, and your participation today brings us closer to our Vision and the Nation’s Treasure.",
       });
 
       //  Send to backend
@@ -133,10 +133,9 @@ export default function Q3D1() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
+          viewBox="0 0 864 928"
           fill="none"
+          className="w-full h-auto"
         >
           <path
             d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
@@ -152,69 +151,56 @@ export default function Q3D1() {
         </svg>
 
         <div
-          className={`questionUser ${lang === "ar" ? "Q3ArUser" : "Q3User"}`}
+          className={`questionUser`}
         >
-          <div
-            data-aos="fade-right"
-            data-aos-delay="100"
-            className="dateWelcome"
-          >
-            <p>
-              {lang === "ar"
-                ? "صح عليك هذا هو المؤشر اللي يعبر عن قوة اقتصادنا ... و مشاركتك اليوم قربتك لاكتشاف ثورة الوطن"
-                : "Well done! This indicator reflects the power of our economy, and your participation today brings us closer to our Vision and the Nation’s Treasure."}
-            </p>
-          </div>
           <img
             data-aos="fade-left"
             data-aos-delay="100"
             src={userWelcome}
             alt="User Welcome"
-            className="Q3img"
+            className="imgQ3D1"
           />
         </div>
       </div>
 
       {/* Body */}
       <div className="fullcontainer">
-        <div className="max-w-4xl mx-auto">
-          <div className="bodycontent">
+        <div className="bodycontent bodyQ1D1">
+          <div
+            className={`containerQuestionChoose  Q1Content`}
+          >
             <div
-              className={`containerQuestionChoose ${lang === "ar" ? "Q3ArContent" : "Q3Content"
-                }`}
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="question Q3"
+              style={{marginTop:"20px",paddingBottom:"8px"}}
             >
-              <div
-                data-aos="zoom-in-up"
-                data-aos-delay="300"
-                className="question Q3"
-              >
-                <h3>
-                  {lang === "ar"
-                    ? "أنا المؤشر اللي يختصر قوة الاقتصاد... من أكون ؟"
-                    : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
-                </h3>
+              <h3 >
+                {lang === "ar"
+                  ? "أنا المؤشر اللي يختصر قوة الاقتصاد ... من أكون ؟"
+                  : "I’m the indicator that sums up the strength of the economy and shows Saudi Arabia’s place in the world. Who am I?"}
+              </h3>
 
-                <div className="ContaineritemBox">
-                  {options.map((opt, index) => (
-                    <div
-                      key={index}
-                      onClick={() => {
-                        setAnswer(index);
-                        setWrong(null);
-                      }}
-                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
-                        } ${wrong === index ? " wrong" : ""}`}
-                    >
-                      <p>{opt}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="ContaineritemBox">
+                {options.map((opt, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      setAnswer(index);
+                      setWrong(null);
+                    }}
+                    className={`itemBox cursor-pointer ${
+                      answer === index ? "border-2 border-green-600" : ""
+                    } ${wrong === index ? " wrong" : ""}`}
+                  >
+                    <p>{opt}</p>
+                  </div>
+                ))}
               </div>
 
               {/* Submit button */}
               <div
-                className={`buttonGroup mt-6 ${lang === "ar" ? "btn-Ar-3" : "btn-3"
-                  }`}
+                className={`buttonGroup `}
               >
                 <button
                   className="btn btn-success px-4 py-2"
@@ -224,8 +210,6 @@ export default function Q3D1() {
                 </button>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>

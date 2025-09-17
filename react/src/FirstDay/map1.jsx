@@ -12,6 +12,7 @@ import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.g
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
 import { useNavigate } from "react-router-dom";
+import Footer from "../footer/footer";
 
 export default function MapPage1() {
   const navigate = useNavigate();
@@ -25,8 +26,8 @@ export default function MapPage1() {
       button: "Start Now Day 1 Challenge",
     },
     ar: {
-      title: "مرحباً بك في صفحة الخريطة",
-      button: " ابدأ الآن تحدي اليوم الأول",
+      title: "مرحباً بك في تحدي  اليوم الأول",
+      button: " المتابعة",
     },
   };
 
@@ -64,7 +65,7 @@ export default function MapPage1() {
 
   return (
     <div className="firstStep two">
-      <div className="header">
+      <div className="header headerMap1 ">
         <img className="logoLanding" src={logo} alt="Logo" />
 
         {/* 🔹 Language toggle button */}
@@ -77,17 +78,16 @@ export default function MapPage1() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
+          viewBox="0 0 864 928"
           fill="none"
+          className="w-full h-auto"
         >
           <path
-            d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
+            d="M0.378906 0V927.1H424.769C586.279 639.67 863.769 558.19 863.769 558.19V0H0.378906Z"
             fill="#004F54"
           />
           <path
-            d="M23.2544 496H421.854C575.854 221.9 840.534 144.2 840.534 144.2"
+            d="M23.4336 860H422.034C576.034 585.9 840.714 508.2 840.714 508.2"
             stroke="#84BD04"
             strokeWidth="2.1"
             strokeMiterlimit="10"
@@ -97,7 +97,7 @@ export default function MapPage1() {
       </div>
       <div className="fullcontainer">
         <div className="max-w-7xl mx-auto mt-20">
-          <div className="bodycontent">
+          <div className="bodycontent map1Content">
             <svg
               className="mapUser"
               data-aos="fade-down"
@@ -256,12 +256,13 @@ export default function MapPage1() {
             </p>
           </div>
           <div
-            // data-aos="zoom-in-up"
-            // data-aos-delay="100"
+            data-aos="zoom-in-up"
+            data-aos-delay="100"
             className="buttonGroup"
+            style={{translate:" 0 1rem"}}
           >
             <button
-              className="btn btn-success px-4 py-2 btn1"
+              className="btn btn-success px-4 py-2 "
               dir="rtl"
               onClick={handelClick}
             >
@@ -296,18 +297,7 @@ export default function MapPage1() {
       </div>
 
       {/* Footer */}
-      <footer>
-        <img
-          className="firstLogoFooter"
-          src={firstLogoFooter}
-          alt="First Logo"
-        />
-        <img
-          className="secoundLogoFooter"
-          src={secoundLogoFooter}
-          alt="Second Logo"
-        />
-      </footer>
+      <Footer />
     </div>
   );
 }

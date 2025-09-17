@@ -3,10 +3,14 @@
         font-family: "Almarai", sans-serif;;
 
 }
+.mobileframe{
+    height: 87vh;
+    overflow: hidden;
+}
 .firstStep {
     background-color: #008787;
     position: relative;
-    height: 100vh;
+    height: 40% !important;
 }
 
 .firstStep footer {
@@ -28,6 +32,10 @@ footer .secoundLogoFooter {
 
 .header {
     position: relative;
+    height: 20%;
+}
+.headerlanding{
+height: 10% !important;
 }
 
 .logoLanding {
@@ -41,16 +49,27 @@ footer .secoundLogoFooter {
 .header svg {
     width: 100%;
     height: fit-content;
+    translate: 0 -3rem;
+
+}
+.headerMap1 svg{
+    translate: 0rem -10rem;
 }
 
+.headerMap1 img, 
+.headerMap1 button{
+    z-index: 2;
+}
+.header img, 
+.header button{
+    z-index: 2;
+}
 .contentHeader {
     width: 70%;
-    position: absolute;
-    top: 50%;
     text-align: center;
     color: #FFF;
     left: 50%;
-    transform: translate(-50%, -20%);
+    translate: 0 -12rem;
 }
 
 .contentHeader .subHeader {
@@ -69,6 +88,8 @@ footer .secoundLogoFooter {
     padding: 12px;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    translate: 0 -4.8rem;
+    padding-bottom: 0.1px;
 }
 
 .contentHeader .containerDateWelcome .dateWelcome p {
@@ -84,8 +105,14 @@ footer .secoundLogoFooter {
     justify-content: center;
     align-items: center;
 }
-.btnMap3{
-  
+.btnQ1D1{
+    translate: 0 -0.2rem;
+}
+.btnQ1D2{
+    translate: 0 2rem;
+}
+.btnQ3D1{
+    translate: 0px -0.5rem;
 }
 .btn-En-map2{
     translate: 0rem -3rem;
@@ -118,8 +145,9 @@ footer .secoundLogoFooter {
     padding: 10px 20px;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
-.buttonGroup .btn1{
+ .btn1{
     margin-top: 25px;
+    translate: 0 19.5rem !important;
 }
 .buttonGroup .btn-1Ar{
     translate: 0rem 0rem;
@@ -158,6 +186,24 @@ footer .secoundLogoFooter {
 .bodycontent {
     text-align: center;
     margin-bottom: 20px;
+}
+.bodyQ1D1{
+    height: 81% !important;
+}
+.map1Content{
+    translate: 0 1.5rem;
+}
+.landingBodyContent{
+    translate: 0 20rem !important;
+}
+.loginbody{
+    margin-bottom: 0px;
+    height: 70%;
+
+}
+.loginbody h3{
+    margin-bottom: 40px !important;
+    color: white;
 }
 .bodyEnContent{
 translate:0px -2.5rem ;
@@ -207,17 +253,11 @@ translate:0px -4.5rem ;
 
 
 .questionUser {
-    display: flex;
-    align-items: end;
     width: 90%;
-    margin: 0 auto;
-    justify-content: space-around;
-    position: relative;
-    top: 21px;
 }
 .questionUserQ1{
-    top: -1.5rem;
     z-index: 2;
+    translate: 6.5rem -24rem;
 }
 
 .questionUserQ3{
@@ -267,20 +307,28 @@ translate:0px -4.5rem ;
 
 .questionUser img {
     width: auto;
-    height: 8pc;
+    height: 12pc;
 }
-.questionUser .Q3img{
-    height: 9pc;
-    margin-bottom: 10px;
+.questionUser .imgQ2D1{
+    height: 14pc;
+    translate: 8rem -2.3rem;
+}
+.questionUser .imgQ3D1{
+    height: 13pc;
+    translate: 5.6rem -25rem;
+   
 }
 
 .containerQuestionChoose {
     background: #004f54;
-    padding: 50px 20px;
+    padding: 50px 20px 0px;
     border-radius: 20px 20px 0 0;
     height: 50vh;
     width: 90%;
     margin: 0 auto;
+}
+.LoginContainer{
+    height: 100% !important;
 }
  .Q3D2{
     height: 60vh;
@@ -290,8 +338,12 @@ translate:0px -4.5rem ;
 }
 .Q1Content,
 .Q1D2{
-    translate: 0px -3rem;
-    height: 60vh;
+    height: 88% !important;
+translate: 0 4.5rem;
+}
+.Q2Content{
+ translate: 0 -3.5rem;
+ height: 80% !important;
 }
 .Q3Content{
     translate: 0px 50rem;
@@ -310,6 +362,7 @@ translate:0px -4.5rem ;
     padding: 10px 20px;
     border-radius: 30px;
 }
+
 .containerQuestionChoose .contentQ3D2{
     margin-top: 8px;
 }
@@ -318,7 +371,7 @@ translate:0px -4.5rem ;
   padding: 5px 20px 0.1px;
 }
 .containerQuestionChoose .Q1{
-    translate: 0px -25px;
+    translate: 0 -2rem;
 }
 .containerQuestionChoose .Q3{
     translate: 0px -2.8rem;
@@ -394,9 +447,10 @@ translate:0px -4.5rem ;
 .numberQuestion {
     position: absolute;
     width: auto;
-    right: 30px;
-    bottom: 50%;
+    right: 7px;
+    bottom: 20%;
     color: #FFF;
+    z-index: 2;
 }
 
 .activeItembox {
@@ -570,7 +624,7 @@ translate:0px -4.5rem ;
 }
 
 .shiledpage footer {
-    background: transparent;
+    background: #004f54;
 }
 
 

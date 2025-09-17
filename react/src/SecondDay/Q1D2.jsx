@@ -8,9 +8,9 @@ import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
+import Popup from "../Popup/Popup";
 
 // ✅ Popup Component
-import Popup from "../PopUp/PopUp";
 
 export default function Q1D2() {
   const navigate = useNavigate();
@@ -49,9 +49,7 @@ export default function Q1D2() {
 
     if (selected === correctAnswer) {
       setWrong(null);
-      setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
-      );
+      setPopupMessage(lang === "ar" ? "صح عليك ! ارفع التحدي و انتقل للسؤال الثاني " : "That’s right ! Raise the bar and move on to the next question. ");
       setPopupType("success");
       setShowPopup(true);
     } else {
@@ -96,10 +94,9 @@ export default function Q1D2() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
+          viewBox="0 0 864 928"
           fill="none"
+          className="w-full h-auto"
         >
           <path
             d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
@@ -115,17 +112,6 @@ export default function Q1D2() {
         </svg>
 
         <div className="questionUser questionUserQ1">
-          <div
-            data-aos="fade-right"
-            data-aos-delay="100"
-            className="dateWelcome"
-          >
-            <p dir={lang === "ar" ? "rtl" : "ltr"} className="paraQ1D2">
-              {lang === "ar"
-                ? "جاوب على السؤال التالي!"
-                : "That’s right ! Raise the bar and move on to the next question."}
-            </p>
-          </div>
           <img
             data-aos="fade-left"
             data-aos-delay="100"
@@ -137,10 +123,10 @@ export default function Q1D2() {
 
       {/* Body */}
       <div className="fullcontainer">
-        <div className="max-w-4xl mx-auto">
-          <div className="bodycontent">
+        
+          <div className="bodycontent bodyQ1D1">
             <div
-              className="containerQuestionChoose Q1D2"
+              className="containerQuestionChoose Q1Content"
               style={{ background: "#46417e" }}
             >
               <div
@@ -159,8 +145,9 @@ export default function Q1D2() {
                     <div
                       key={index}
                       onClick={() => setSelected(index)}
-                      className={`itemBox cursor-pointer ${selected === index ? "border-2 border-green-600" : ""
-                        } ${wrong === index ? "wrong" : ""}`}
+                      className={`itemBox cursor-pointer ${
+                        selected === index ? "border-2 border-green-600" : ""
+                      } ${wrong === index ? "wrong" : ""}`}
                     >
                       <p
                         dir={lang === "ar" ? "rtl" : "ltr"}
@@ -170,14 +157,11 @@ export default function Q1D2() {
                       </p>
                     </div>
                   ))}
-                </div>
+                
               </div>
 
               {/* Submit button */}
-              <div
-
-                className="buttonGroup mt-6"
-              >
+              <div className="buttonGroup mt-1 btnQ1D2">
                 <button
                   className="btn btn-success px-4 py-2 btn-Q1"
                   onClick={handleSubmit}
@@ -187,8 +171,6 @@ export default function Q1D2() {
                 </button>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>

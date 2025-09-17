@@ -77,7 +77,7 @@ export default function Q4D2() {
       setPopupConfig({
         show: true,
         type: "success",
-        message: lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! ",
+        message: lang === "ar" ? "رائع ! اليوم أثبت أنك قد التحدي مهما كانت الأسئلة صعبة و فزت بالوسام الثاني . " : "Well said ! Today you proved you’re up for any challenge, no matter how tough. You’ve earned your second badge ! . ",
       });
 
       // ✅ Send to backend
@@ -131,10 +131,9 @@ export default function Q4D2() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
+          viewBox="0 0 864 928"
           fill="none"
+          className="w-full h-auto"
         >
           <path
             d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
@@ -149,19 +148,7 @@ export default function Q4D2() {
           />
         </svg>
 
-        <div className="questionUser questionUserQ3">
-          <div
-            data-aos="fade-right"
-            data-aos-delay="100"
-            className="dateWelcome"
-            style={{ zIndex: "2" }}
-          >
-            <p dir={lang === "ar" ? "rtl" : "ltr"}>
-              {lang === "ar"
-                ? "رائع ! اليوم أثبت أنك قد التحدي مهما كانت الأسئلة صعبة و فزت بالوسام الثاني ."
-                : "Well said ! Today you proved you’re up for any challenge, no matter how tough. You’ve earned your second badge ! ."}
-            </p>
-          </div>
+        <div className="questionUser questionUserQ1">
           <img
             data-aos="fade-left"
             data-aos-delay="100"
@@ -174,10 +161,10 @@ export default function Q4D2() {
 
       {/* Body */}
       <div className="fullcontainer">
-        <div className="max-w-4xl mx-auto">
-          <div className="bodycontent ">
+        
+          <div className="bodycontent bodyQ1D1 ">
             <div
-              className="containerQuestionChoose Q3D2 "
+              className="containerQuestionChoose Q1Content "
               style={{ background: "#46417e" }}
             >
               <div
@@ -198,17 +185,18 @@ export default function Q4D2() {
                     <div
                       key={index}
                       onClick={() => setAnswer(index)}
-                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
-                        } ${wrong === index ? "wrong" : ""}`}
+                      className={`itemBox cursor-pointer ${
+                        answer === index ? "border-2 border-green-600" : ""
+                      } ${wrong === index ? "wrong" : ""}`}
                     >
                       <p dir={lang === "ar" ? "rtl" : "ltr"}>{opt}</p>
                     </div>
                   ))}
-                </div>
+                
               </div>
 
               {/* Submit button */}
-              <div className="buttonGroup mt-6">
+              <div className="buttonGroup mt-1 btnQ1D1" style={{translate:"0 1rem"}}>
                 <button
                   className="btn btn-success px-4 py-2"
                   onClick={handleSubmit}
@@ -219,8 +207,6 @@ export default function Q4D2() {
                 </button>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>

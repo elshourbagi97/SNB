@@ -9,7 +9,7 @@ import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
 // ✅ Popup
 
@@ -34,15 +34,15 @@ export default function Q3D2() {
   const options =
     lang === "ar"
       ? [
-        "أ - يعتبر أكبر مجمع صناعي عائم في العالم و يقع شمال غرب السعودية .", // ✅ correct
-        "ب - هو مدينة سياحية جبلية مخصصة للرياضات الشتوية .",
-        "ج - جزيرة فاخرة في البحر الأحمر تابعة لمشروع نيوم .",
-      ]
+          "أ - يعتبر أكبر مجمع صناعي عائم في العالم و يقع شمال غرب السعودية .", // ✅ correct
+          "ب - هو مدينة سياحية جبلية مخصصة للرياضات الشتوية .",
+          "ج - جزيرة فاخرة في البحر الأحمر تابعة لمشروع نيوم .",
+        ]
       : [
-        "A - It is the world’s largest floating industrial complex, located in northwest Saudi Arabia", // ✅ correct
-        "B - A mountain tourist city dedicated to winter sports",
-        "C - A luxury island in the Red Sea as part of NEOM",
-      ];
+          "A - It is the world’s largest floating industrial complex, located in northwest Saudi Arabia", // ✅ correct
+          "B - A mountain tourist city dedicated to winter sports",
+          "C - A luxury island in the Red Sea as part of NEOM",
+        ];
 
   const correctAnswer = 0;
 
@@ -59,9 +59,7 @@ export default function Q3D2() {
     }
 
     if (answer === correctAnswer) {
-      setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
-      );
+      setPopupMessage(lang === "ar" ? "رهيب ! أمامك الأن السؤال الرابع " : "Awesome! Now here’s question four. ");
       setPopupType("success");
       setWrong(null);
       setShowPopup(true);
@@ -111,10 +109,9 @@ export default function Q3D2() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
+          viewBox="0 0 864 928"
           fill="none"
+          className="w-full h-auto"
         >
           <path
             d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
@@ -129,18 +126,7 @@ export default function Q3D2() {
           />
         </svg>
 
-        <div className="questionUser questionUserQ3">
-          <div
-            data-aos="fade-right"
-            data-aos-delay="100"
-            className="dateWelcome"
-          >
-            <p dir={lang === "ar" ? "rtl" : "ltr"}>
-              {lang === "ar"
-                ? " رهيب ! أمامك الأن السؤال الثالث"
-                : "Awesome! Now here’s question three."}
-            </p>
-          </div>
+        <div className="questionUser questionUserQ1">
           <img
             data-aos="fade-left"
             data-aos-delay="100"
@@ -152,10 +138,10 @@ export default function Q3D2() {
 
       {/* Body */}
       <div className="fullcontainer">
-        <div className="max-w-4xl mx-auto">
-          <div className="bodycontent">
+        
+          <div className="bodycontent bodyQ1D1">
             <div
-              className="containerQuestionChoose Q3D2"
+              className="containerQuestionChoose Q1Content"
               style={{ background: "#46417e" }}
             >
               <div
@@ -178,20 +164,19 @@ export default function Q3D2() {
                         setAnswer(index);
                         setWrong(null);
                       }}
-                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
-                        } ${wrong === index ? " wrong" : ""}`}
+                      style={{marginBottom:"10px"}}
+                      className={`itemBox cursor-pointer ${
+                        answer === index ? "border-2 border-green-600" : ""
+                      } ${wrong === index ? " wrong" : ""}`}
                     >
                       <p dir={lang === "ar" ? "rtl" : "ltr"}>{opt}</p>
                     </div>
                   ))}
-                </div>
+                
               </div>
 
               {/* Submit button */}
-              <div
-
-                className="buttonGroup mt-6 btnQ3"
-              >
+              <div className="buttonGroup btnQ1D1" style={{translate:"0 -0.3rem"}}>
                 <button
                   className="btn btn-success px-4 py-2 "
                   onClick={handleSubmit}
@@ -201,8 +186,6 @@ export default function Q3D2() {
                 </button>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -227,8 +210,8 @@ export default function Q3D2() {
           popupType === "warning"
             ? "warning"
             : popupType === "error"
-              ? "error"
-              : "success"
+            ? "error"
+            : "success"
         }
         onClose={() => setShowPopup(false)}
         onNext={() => navigate("/question4/Day2")}

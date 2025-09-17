@@ -11,6 +11,7 @@ import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
+import Footer from "../footer/footer";
 
 export default function LandingPage1() {
   const location = useLocation();
@@ -73,24 +74,25 @@ export default function LandingPage1() {
   return (
     <div className="firstStep one">
       {/* Header */}
-      <div className="header">
-        <img className="logoLanding" src={logo} alt="Logo" />
+      <div className="header headerlanding">
+        <img className="logoLanding" style={{zIndex:"2"}} src={logo} alt="Logo" />
 
         {/* ✅ Language Switch Button */}
         <button
           className="absolute top-4 right-4 px-3 py-1 rounded bg-green-600 text-white"
           onClick={() => setLang(lang === "ar" ? "en" : "ar")}
+          style={{zIndex:"2"}}
         >
           {texts[lang].switchLang}
         </button>
 
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="928"
-          viewBox="0 0 864 928"
-          fill="none"
-        >
+       <svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 864 928"
+  fill="none"
+  className="w-full h-auto"
+>
+
           <path
             d="M0.378906 0V927.1H424.769C586.279 639.67 863.769 558.19 863.769 558.19V0H0.378906Z"
             fill="#004F54"
@@ -104,6 +106,11 @@ export default function LandingPage1() {
           />
         </svg>
 
+      </div>
+
+      {/* Body */}
+      <div className="fullcontainer">
+      <div className="max-w-7xl mx-auto mt-28">
         <div className="contentHeader">
           <div className="subHeader">
             <p dir={lang === "ar" ? "rtl" : "ltr"}>{texts[lang].day}</p>
@@ -115,7 +122,7 @@ export default function LandingPage1() {
             data-aos-delay="100"
             className="containerDateWelcome"
           >
-            <img src={userWelcome} alt="User Welcome" />
+            <img src={userWelcome} style={{translate:"0 -3.3rem"}} alt="User Welcome" />
             <div className="dateWelcome">
               <p
                 dir={lang === "ar" ? "rtl" : "ltr"}
@@ -126,13 +133,8 @@ export default function LandingPage1() {
             </div>
           </div>
         </div>
-      </div>
-
-      {/* Body */}
-      <div className="fullcontainer">
-      <div className="max-w-7xl mx-auto mt-28">
         <div
-          className="bodycontent bodyContent1"
+          className="bodycontent landingBodyContent"
           // data-aos="fade-right"
           // data-aos-delay="300"
           dir={lang === "ar" ? "rtl" : "ltr"}
@@ -145,11 +147,11 @@ export default function LandingPage1() {
         <div
           // data-aos="fade-right"
           // data-aos-delay="300"
-          className="buttonGroup"
+          className="buttonGroup btn1"
           style={{ translate: "0px 3rem" }}
         >
           <button
-            className="btn btn-success px-4 py-2 btn1"
+            className="btn btn-success px-4 py-2 "
             dir={lang === "ar" ? "rtl" : "ltr"}
             onClick={handelClick}
           >
@@ -187,18 +189,7 @@ export default function LandingPage1() {
         </svg>
       </div>
     {/* Footer */}
-      <footer>
-          <img
-            className="firstLogoFooter"
-            src={firstLogoFooter}
-            alt="First Logo"
-          />
-          <img
-            className="secoundLogoFooter"
-            src={secoundLogoFooter}
-            alt="Second Logo"
-          />
-        </footer>
+     <Footer/>
     </div>
   );
 }

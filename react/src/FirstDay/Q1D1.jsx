@@ -61,7 +61,9 @@ export default function Q1D1() {
 
     if (answer === correctAnswer) {
       setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
+        lang === "ar"
+          ? "لسه سهلة ؟ ... بعطيك سؤال ثاني"
+          : "Easy one ? .. Answer the second question of today’s challenge "
       );
       setPopupType("success");
       setWrong(null);
@@ -96,7 +98,7 @@ export default function Q1D1() {
   return (
     <div className="firstStep three">
       {/* Header */}
-      <div className="header relative">
+      <div className="header relative ">
         <img className="logoLanding" src={logo} alt="Logo" />
         {/* ✅ زر لتغيير اللغة */}
         <button
@@ -111,10 +113,9 @@ export default function Q1D1() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
+          viewBox="0 0 864 928"
           fill="none"
+          className="w-full h-auto"
         >
           <path
             d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
@@ -130,17 +131,6 @@ export default function Q1D1() {
         </svg>
 
         <div className="questionUser questionUserQ1">
-          <div
-            data-aos="fade-right"
-            data-aos-delay="100"
-            className="dateWelcome"
-          >
-            <p>
-              {lang === "ar"
-                ? "لسه سهلة ؟ .. جاوب على أول سؤال في تحدي اليوم"
-                : "Easy one? .. Answer the first question of today’s challenge"}
-            </p>
-          </div>
           <img
             data-aos="fade-left"
             data-aos-delay="100"
@@ -152,12 +142,11 @@ export default function Q1D1() {
 
       {/* Body */}
       <div className="fullcontainer">
-      <div className="max-w-4xl mx-auto">
-        <div className="bodycontent">
+        <div className="bodycontent bodyQ1D1 ">
           <div className="containerQuestionChoose Q1Content">
             <div
-              // data-aos="zoom-in-up"
-              // data-aos-delay="300"
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
               className="question Q1"
             >
               <h3>
@@ -187,9 +176,9 @@ export default function Q1D1() {
 
             {/* Submit button */}
             <div
-              // data-aos="zoom-in-up"
-              // data-aos-delay="300"
-              className="buttonGroup mt-6"
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="buttonGroup mt-1 btnQ1D1"
             >
               <button
                 className="btn btn-success px-4 py-2 btn-Q1"
@@ -199,11 +188,7 @@ export default function Q1D1() {
               </button>
             </div>
           </div>
-
-       
         </div>
-         </div>
-        
       </div>
       {/* Pattern Footer */}
       <div className="patterFooter">
@@ -229,19 +214,19 @@ export default function Q1D1() {
           </defs>
         </svg>
       </div>
-        {/* Footer */}
-        <footer className="flex justify-center gap-6 mt-6">
-            <img
-              className="firstLogoFooter"
-              src={firstLogoFooter}
-              alt="First Footer Logo"
-            />
-            <img
-              className="secoundLogoFooter"
-              src={secoundLogoFooter}
-              alt="Second Footer Logo"
-            />
-          </footer>
+      {/* Footer */}
+      <footer className="flex justify-center gap-6 mt-6">
+        <img
+          className="firstLogoFooter"
+          src={firstLogoFooter}
+          alt="First Footer Logo"
+        />
+        <img
+          className="secoundLogoFooter"
+          src={secoundLogoFooter}
+          alt="Second Footer Logo"
+        />
+      </footer>
 
       {/* ✅ Popup Component */}
       <Popup

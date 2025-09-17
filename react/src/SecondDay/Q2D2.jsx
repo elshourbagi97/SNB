@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Aos from "aos";
@@ -10,7 +9,7 @@ import logo from "../assets/img/logo.svg";
 import userWelcome from "../assets/img/HSA - Charachter Animation 01 - Neutral.gif";
 import firstLogoFooter from "../assets/img/firstLogoFooter.svg";
 import secoundLogoFooter from "../assets/img/secoundLogoFooter.svg";
-import Popup from "../PopUp/PopUp";
+import Popup from "../Popup/Popup";
 
 // ✅ Popup
 
@@ -35,15 +34,15 @@ export default function Q2D2() {
   const options =
     lang === "ar"
       ? [
-        "أ - نيوم",
-        "ب - مشروع البحر الأحمر", // ✅ correct
-        "ج - القدية",
-      ]
+          "أ - نيوم",
+          "ب - مشروع البحر الأحمر", // ✅ correct
+          "ج - القدية",
+        ]
       : [
-        "A - NEOM",
-        "B - The Red Sea Project", // ✅ correct
-        "C - Qiddiya",
-      ];
+          "A - NEOM",
+          "B - The Red Sea Project", // ✅ correct
+          "C - Qiddiya",
+        ];
 
   const correctAnswer = 1;
 
@@ -60,9 +59,7 @@ export default function Q2D2() {
     }
 
     if (answer === correctAnswer) {
-      setPopupMessage(
-        lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! "
-      );
+      setPopupMessage(lang === "ar" ? "صح عليك ! اكمل تحدي اليوم بالسؤال الثالث " : "That’s right ! Keep going  ! Next up is question three .");
       setPopupType("success");
       setWrong(null);
       setShowPopup(true);
@@ -111,10 +108,9 @@ export default function Q2D2() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
+          viewBox="0 0 864 928"
           fill="none"
+          className="w-full h-auto"
         >
           <path
             d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
@@ -130,17 +126,6 @@ export default function Q2D2() {
         </svg>
 
         <div className="questionUser questionUserQ1">
-          <div
-            data-aos="fade-right"
-            data-aos-delay="100"
-            className="dateWelcome"
-          >
-            <p>
-              {lang === "ar"
-                ? " صح عليك ! اكمل تحدي اليوم بالسؤال الثاني"
-                : "That’s right ! Keep going  ! Next up is question two ."}
-            </p>
-          </div>
           <img
             data-aos="fade-left"
             data-aos-delay="100"
@@ -152,10 +137,10 @@ export default function Q2D2() {
 
       {/* Body */}
       <div className="fullcontainer">
-        <div className="max-w-4xl mx-auto">
-          <div className="bodycontent">
+        
+          <div className="bodycontent bodyQ1D1">
             <div
-              className="containerQuestionChoose Q1D2"
+              className="containerQuestionChoose Q1Content"
               style={{ background: "#46417e" }}
             >
               <div
@@ -177,20 +162,18 @@ export default function Q2D2() {
                         setAnswer(index);
                         setWrong(null);
                       }}
-                      className={`itemBox cursor-pointer ${answer === index ? "border-2 border-green-600" : ""
-                        } ${wrong === index ? " wrong" : ""}`}
+                      className={`itemBox cursor-pointer ${
+                        answer === index ? "border-2 border-green-600" : ""
+                      } ${wrong === index ? " wrong" : ""}`}
                     >
                       <p>{opt}</p>
                     </div>
                   ))}
-                </div>
+                
               </div>
 
               {/* Submit button */}
-              <div
-
-                className="buttonGroup mt-6"
-              >
+              <div className="buttonGroup mt-1 btnQ1D1" style={{translate:"0 2rem"}}>
                 <button
                   className="btn btn-success px-4 py-2 btn-Q1"
                   onClick={handleSubmit}
@@ -199,8 +182,6 @@ export default function Q2D2() {
                 </button>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -224,8 +205,8 @@ export default function Q2D2() {
           popupType === "warning"
             ? "warning"
             : popupType === "error"
-              ? "error"
-              : "success"
+            ? "error"
+            : "success"
         }
         onClose={() => setShowPopup(false)}
         onNext={() => navigate("/question3/Day2")}

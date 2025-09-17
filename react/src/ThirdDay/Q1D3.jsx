@@ -96,7 +96,10 @@ export default function Q1D3() {
       setPopupConfig({
         show: true,
         type: "success",
-        message: lang === "ar" ? "إجابتك صحيحة ! " : "Correct Answer! ",
+        message:
+          lang === "ar"
+            ? "كلمة منك تترك أثر كبير. صارت جزء من عزّتنا !"
+            : "One word from you leaves a big impact. It became part of our pride !",
       });
 
       // ✅ Send to backend
@@ -146,10 +149,9 @@ export default function Q1D3() {
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="864"
-          height="554"
-          viewBox="0 0 864 554"
+          viewBox="0 0 864 928"
           fill="none"
+          className="w-full h-auto"
         >
           <path
             d="M0.174316 0.978027L0.174385 553.1H424.564C586.074 265.67 863.564 184.19 863.564 184.19V0.978027H0.174316Z"
@@ -164,53 +166,59 @@ export default function Q1D3() {
           />
         </svg>
 
-        <div className="questionUser">
-          <div className="dateWelcome">
-            <p dir={lang === "ar" ? "rtl" : "ltr"}>
-              {lang === "ar"
-                ? "كلمة منك تترك أثر كبير. صارت جزء من عزّتنا!"
-                : "One word from you leaves a big impact. It became part of our pride!"}
-            </p>
-          </div>
-          <img src={userWelcome} alt="User Welcome" />
+        <div className="questionUser questionUserQ1">
+          <img
+            src={userWelcome}
+            alt="User Welcome"
+            data-aos="fade-left"
+            data-aos-delay="300"
+          />
         </div>
       </div>
 
       {/* Body */}
       <div className="fullcontainer">
-        <div className="max-w-7xl mx-auto">
-          <div className="bodycontent">
-            <div className="containerQuestionChoose">
-              {/* ✅ عرض الكلمات حسب اللغة */}
-              <div className="continue_words">
-                {continue_words.map((word, idx) => (
-                  <p key={idx}>{word}</p>
-                ))}
-              </div>
+        <div className="bodycontent bodyQ1D1">
+          <div className="containerQuestionChoose Q1Content">
+            {/* ✅ عرض الكلمات حسب اللغة */}
+            <div
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="continue_words"
+            >
+              {continue_words.map((word, idx) => (
+                <p key={idx}>{word}</p>
+              ))}
+            </div>
 
-              <div className="question" dir={lang === "ar" ? "rtl" : "ltr"}>
-                <h3>
-                  {lang === "ar"
-                    ? "اختر كلمة من الشاشات من حولك"
-                    : "Pick a word from the screens around you"}
-                </h3>
-                <div className="ContaineritemBox">
-                  <div className="inputGroup">
-                    <input
-                      type="text"
-                      placeholder={
-                        lang === "ar" ? "اكتب اجابتك" : "Enter your answer"
-                      }
-                      value={answer}
-                      onChange={(e) => setAnswer(e.target.value)}
-                      style={{ textTransform: "capitalize" }}
-                    />
-                  </div>
+            <div
+              data-aos="zoom-in-up"
+              data-aos-delay="300"
+              className="question Q1"
+              dir={lang === "ar" ? "rtl" : "ltr"}
+              style={{ translate: "0 -0.1rem" }}
+            >
+              <h3>
+                {lang === "ar"
+                  ? "اختر كلمة من الشاشات من حولك"
+                  : "Pick a word from the screens around you"}
+              </h3>
+              <div className="ContaineritemBox">
+                <div className="inputGroup">
+                  <input
+                    type="text"
+                    placeholder={
+                      lang === "ar" ? "اكتب اجابتك" : "Enter your answer"
+                    }
+                    value={answer}
+                    onChange={(e) => setAnswer(e.target.value)}
+                    style={{ textTransform: "capitalize" }}
+                  />
                 </div>
               </div>
 
               {/* Submit button */}
-              <div className="buttonGroup mt-6">
+              <div className="buttonGroup mt-1 btnQ1D1">
                 <button
                   className="btn btn-success px-4 py-2"
                   onClick={handleSubmit}
@@ -220,8 +228,6 @@ export default function Q1D3() {
                 </button>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>

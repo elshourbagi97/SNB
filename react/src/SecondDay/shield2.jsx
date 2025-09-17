@@ -61,13 +61,11 @@ export default function Shield2() {
           {t.langBtn}
         </button>
 
-        <svg
+       <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="989"
-          height="1942"
-          viewBox="0 0 989 1612"
+          viewBox="0 0 864 928"
           fill="none"
-          
+          className="w-full h-auto"
         >
           <g clipPath="url(#clip0_136_33209)">
             <path
@@ -143,7 +141,7 @@ export default function Shield2() {
       </div>
 
       {/* Footer */}
-      <footer>
+      <footer style={{background:"#46417e"}}>
         <img className="firstLogoFooter" src={firstLogoFooter} alt="" />
         <img className="secoundLogoFooter" src={secondLogoFooter} alt="" />
       </footer>
